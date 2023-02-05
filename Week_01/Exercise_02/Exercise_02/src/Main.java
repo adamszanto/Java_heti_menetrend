@@ -1,20 +1,68 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        Futoverseny futoverseny = new Futoverseny();
-        Csapat csapat1 = new Csapat();
-        Csapat csapat2 = new Csapat();
-        Csapat csapat3 = new Csapat();
-        Varolista varolista2 = new Varolista(2);
-        Varolista varolista3 = new Varolista(3);
+        Verseny verseny = start();
+        Csapat egyeni = new Csapat();
+        Csapat ketFo = new Csapat();
+        Csapat haromFo = new Csapat();
+        Varolista varolista = new Varolista();
 
-        futoverseny.start();
-
-        while(futoverseny.getLetszam() > futoverseny.getJelentkezok()) {
-            futoverseny.jelentkezes();
+        while(verseny.getLetszam() > verseny.getVersenyzokSzama()) {
+            Versenyzo versenyzo = menu(verseny);
+                ellenorzes(versenyzo, egyeni, varolista);
+                verseny.sikeresJelentkezo();
         }
+        System.out.println("Beteltek a helyek.");
+        System.out.println("Egyéni versenyzők listája:");
+        egyeni.printCsapatok();
+        System.out.println("Varolistasok szama: " + varolista.varoListaszam());
+        System.out.println(varolista.varoListaszam());
+    }
 
-        System.out.println("Lezarult jelentkezes. Csapatok listája: ");
+    public static Verseny start() {
+        System.out.print("Verseny letrehozas.");
+        Verseny verseny = new Verseny();
+        int letszam;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(" Add meg a verseny letszamot: ");
+        letszam = scanner.nextInt();
+        verseny.setLetszam(letszam);
+        System.out.println("A " + letszam + " letszamu verseny elkeszult!");
+
+        return verseny;
+    }
+
+    public static Versenyzo menu(Verseny verseny) {
+            String nev;
+            int tav;
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Versenyzo jelentkezes, neve: ");
+            nev = scanner.nextLine();
+            System.out.println("7km, 10.5km, 21km - Melyik tavra jelentkezel?");
+            tav = scanner.nextInt();
+            Versenyzo versenyzo = new Versenyzo(nev, tav);
+
+            return versenyzo;
+    }
+
+    public static Csapat ellenorzes(Versenyzo versenyzo, Csapat egyeni, Varolista varolista) {
+
+        Csapat csapat = new Csapat();
+        switch(versenyzo.getTav()) {
+            case 21:
+                egyeni.add(versenyzo);
+                System.out.println("Sikeres egyeni jelentkezes.");
+                break;
+            case 10:
+                varolista.addVarolistahoz(versenyzo);
+                System.out.println("Ket fos csapat jelentkezes, varolista ellenorzes.");
+                break;
+            case 7:
+                varolista.addVarolistahoz(versenyzo);
+                System.out.println("Harom fos csapat jelentkezes, varolista ellenorzes.");
+        }
+        return csapat;
     }
 }

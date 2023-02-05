@@ -1,11 +1,8 @@
-public class Futo{
+public class Versenyzo {
     private String name;
     private int tav;
 
-    public Futo() {
-    }
-
-    public Futo(String name, int tav) {
+    public Versenyzo(String name, int tav) {
         this.name = name;
         this.tav = tav;
     }
@@ -17,5 +14,4 @@ public class Futo{
     public String getName() {
         return name;
     }
-
 }

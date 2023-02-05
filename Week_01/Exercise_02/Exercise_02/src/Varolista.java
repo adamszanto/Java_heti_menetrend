@@ -1,38 +1,54 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Varolista {
-    private ArrayList<Futo> futoLista = new ArrayList<>();
-    private int kapacitas;
+    HashMap<Versenyzo, Integer> varolista = new HashMap<>();
 
-    public Varolista(int kapacitas) {
-        this.kapacitas = kapacitas;
+    int counter10 = 0;
+    int counter7 = 0;
+    public void addVarolistahoz(Versenyzo versenyzo) {
+        varolista.put(versenyzo, versenyzo.getTav());
+        varolistaCheck(new Csapat(), new Csapat());
     }
 
-    public int getKapacitas() {
-        return kapacitas;
+    public int varoListaszam() {
+        return varolista.size();
     }
 
-    public int varolistaMeret() {
-        return futoLista.size();
-    }
 
-    public void add(Futo futo) {
-        futoLista.add(futo);
-    }
+    private void varolistaCheck(Csapat ketFo, Csapat haromFo) {
+        System.out.println("Varolista check lefut");
+        int counter7 = 0;
+        int counter10 = 0;
+        List<Versenyzo> versenyzo7 = new ArrayList<>();
+        List<Versenyzo> versenyzo10 = new ArrayList<>();
 
-    public Futo get(int i) {
-        return futoLista.get(i);
-    }
+        for(Map.Entry<Versenyzo, Integer> entry: varolista.entrySet()) {
+            Versenyzo versenyzo = entry.getKey();
+            int value = entry.getValue();
 
-    public void varoListaEllenorzes() {
+            if(value == 7) {
+                counter7++;
+                versenyzo7.add(versenyzo);
+            } else if(value == 10) {
+                counter10++;
+                versenyzo10.add(versenyzo);
+            }
 
-        if(this.futoLista.size() == kapacitas) {
-            Csapat csapat2 = new Csapat();
-            csapat2.add(futoLista.get(0));
-            csapat2.add(futoLista.get(1));
-            futoLista.clear();
-            System.out.println("2 fos csapat hozzarendeles elkeszult");
+            if(counter7 == 3) {
+                haromFo.add(versenyzo7.get(0));
+                haromFo.add(versenyzo7.get(1));
+                haromFo.add(versenyzo7.get(2));
+                System.out.println("Uj harom fos csapat elkeszult!");
+                versenyzo7.clear();
+            } else if(counter10 == 2) {
+                ketFo.add(versenyzo10.get(0));
+                ketFo.add(versenyzo10.get(1));
+                System.out.println("Uj ketfos csapat elkeszult");
+                versenyzo10.clear();
+            }
         }
     }
 }
