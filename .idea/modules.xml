@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Week_00/Exercises_01/Abstract_gyakorlas/Abstract_gyakorlas.iml" filepath="$PROJECT_DIR$/Week_00/Exercises_01/Abstract_gyakorlas/Abstract_gyakorlas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week_00/Exercises_00/Exercises_00.iml" filepath="$PROJECT_DIR$/Week_00/Exercises_00/Exercises_00.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week_00/Exercises_01/Iktato_program/Iktato_program.iml" filepath="$PROJECT_DIR$/Week_00/Exercises_01/Iktato_program/Iktato_program.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java_heti_menetrend.iml" filepath="$PROJECT_DIR$/.idea/Java_heti_menetrend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week_00/Exercises_01/ListaElemek/ListaElemek.iml" filepath="$PROJECT_DIR$/Week_00/Exercises_01/ListaElemek/ListaElemek.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week_00/Exercises_01/SIM_program/SIM_program.iml" filepath="$PROJECT_DIR$/Week_00/Exercises_01/SIM_program/SIM_program.iml" />
+    </modules>
+  </component>
+</project>
