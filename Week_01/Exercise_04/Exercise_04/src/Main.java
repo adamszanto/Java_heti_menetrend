@@ -28,13 +28,14 @@ public class Main {
         while (betuIndex < 9) {
             int i = random.nextInt(9) +1;
             int j = random.nextInt(9) + 1;
+            if(i == 1 && j == 1) {
+                continue;
+            }
             map[i][j] = betuk.get(betuIndex);
             betuIndex++;
         }
 
-
-
-        while(begyujtottBetuk.size() < 9) {
+        while(begyujtottBetuk.size() < 8) {
             System.out.println("Lepesek szama: " + lepesek);
 
             for(int i = 0; i < 10; i++) {
@@ -47,11 +48,40 @@ public class Main {
                 }
                 System.out.println();
             }
-
             System.out.println("Mozogj a W-A-S-D billentyuvel: ");
             char lepes = scanner.next().toUpperCase().charAt(0);
-
+            switch(lepes) {
+                case 'W':
+                    if(x>0) {
+                        x--;
+                        lepesek++;
+                    }
+                    break;
+                case 'S':
+                    if(x<9) {
+                        x++;
+                        lepesek++;
+                    }
+                    break;
+                case 'A':
+                    if(y>0) {
+                        y--;
+                        lepesek++;
+                    }
+                    break;
+                case 'D':
+                    if(y<9) {
+                        y++;
+                        lepesek++;
+                    }
+                    break;
+            }
+            if(map[x][y] != '\0') {
+                begyujtottBetuk.add(map[x][y]);
+                map[x][y] = '\0';
+            }
         }
+        System.out.println("SIKER! " + lepesek + " lepessel.");
     }
 }
 
