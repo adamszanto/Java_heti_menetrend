@@ -15,10 +15,11 @@ public class Main {
         int lepesek = 0;
 
         ArrayList<Character> betuk = new ArrayList<>();
-        for (int i = 65; i < 85; i++) {
+        for (int i = 65; i < 90; i++) {
             betuk.add((char) i);
         }
 
+        Collections.shuffle(betuk);
 
         ArrayList<Character> begyujtottBetuk = new ArrayList<>();
 
@@ -30,12 +31,16 @@ public class Main {
         while (betuIndex < 9) {
             int i = random.nextInt(9) +1;
             int j = random.nextInt(9) + 1;
+
             if(i == 1 && j == 1) {
                 continue;
             }
-            map[i][j] = betuk.get(betuIndex);
-            abcBetuk.add(map[i][j]);
-            betuIndex++;
+
+            if(map[i][j] == '\0') {
+                map[i][j] = betuk.get(betuIndex);
+                abcBetuk.add(map[i][j]);
+                betuIndex++;
+            }
         }
 
         Collections.sort(abcBetuk);
