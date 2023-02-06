@@ -18,12 +18,14 @@ public class Main {
         for (int i = 65; i < 85; i++) {
             betuk.add((char) i);
         }
-        Collections.shuffle(betuk);
+
 
         ArrayList<Character> begyujtottBetuk = new ArrayList<>();
 
         Random random = new Random();
         int betuIndex = 0;
+
+        ArrayList<Character> abcBetuk = new ArrayList<>();
 
         while (betuIndex < 9) {
             int i = random.nextInt(9) +1;
@@ -32,10 +34,15 @@ public class Main {
                 continue;
             }
             map[i][j] = betuk.get(betuIndex);
+            abcBetuk.add(map[i][j]);
             betuIndex++;
         }
 
-        while(begyujtottBetuk.size() < 8) {
+        Collections.sort(abcBetuk);
+        System.out.println("Abc betuk: " +abcBetuk);
+        System.out.println("Begyujtott betuk: " + begyujtottBetuk);
+
+        while(begyujtottBetuk.size() < 9) {
             System.out.println("Lepesek szama: " + lepesek);
 
             for(int i = 0; i < 10; i++) {
@@ -76,7 +83,7 @@ public class Main {
                     }
                     break;
             }
-            if(map[x][y] != '\0') {
+            if(map[x][y] == abcBetuk.get(begyujtottBetuk.size())) {
                 begyujtottBetuk.add(map[x][y]);
                 map[x][y] = '\0';
             }
