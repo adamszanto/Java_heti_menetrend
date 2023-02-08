@@ -40,7 +40,11 @@ public class Main {
         }
 
         ArrayList<Integer> primLista = new ArrayList<>();
+        primeChecker(szamLista, primLista);
 
+    }
+
+    public static void primeChecker(ArrayList<Integer> szamLista,ArrayList<Integer> primLista) {
         for(int szam : szamLista) {
             boolean prim = true;
             for(int i = 2; i <= szam/2; i++) {
