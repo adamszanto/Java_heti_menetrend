@@ -39,11 +39,11 @@ public class Main {
 
         for(int i = 0; i < megyeLista.size(); i++) {
             megyeLista.get(i).szavazas();
-            sumSzavazo+=megyeLista.get(i).getSzavazo();
-            sumJava+=megyeLista.get(i).getJava();
-            sumCSharp+=megyeLista.get(i).getcSharp();
-            sumC+=megyeLista.get(i).getC();
-            sumCpp+=megyeLista.get(i).getCpp();
+            sumSzavazo += megyeLista.get(i).getSzavazo();
+            sumJava += megyeLista.get(i).getJava();
+            sumCSharp += megyeLista.get(i).getcSharp();
+            sumC += megyeLista.get(i).getC();
+            sumCpp += megyeLista.get(i).getCpp();
         }
 
         for(int i = 0; i < megyeLista.size(); i++) {

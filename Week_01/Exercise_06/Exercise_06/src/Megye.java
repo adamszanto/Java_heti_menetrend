@@ -9,7 +9,6 @@ public class Megye {
     private int c = 0;
     private int cpp = 0;
 
-    Random random = new Random();
     public Megye(String nev, int szavazo, ArrayList megyeLista) {
         this.nev = nev;
         this.szavazo = szavazo;
@@ -41,6 +40,7 @@ public class Megye {
     }
 
     public void szavazas() {
+        Random random = new Random();
         for(int i = 0; i < szavazo; i++) {
             int randomVote = random.nextInt(4);
                 switch(randomVote) {
@@ -68,8 +68,8 @@ public class Megye {
         System.out.println("\t c    = " + getC());
         System.out.println("\t c++  = " + getCpp());
 
-        if((float)getCpp()/(float)getSzavazo() >= 0.20) {
-            System.out.println("Ebben a megyében a szavazók legalább 20%-a voksolt a C++ mellett.");
+        if((float)getCpp()/(float)getSzavazo() >= 0.25) {
+            System.out.println("Ebben a megyében a szavazók legalább 25%-a voksolt a C++ mellett.");
         }
         System.out.println("=================================================");
     }
