@@ -4,6 +4,7 @@ public class Main {
     private static final int ASCII_VALUE_A = 65;
     private static final int ASCII_VALUE_Z = 90;
     private static final int NUMBEROF_RANDOM_GENERATED_CHARS = 9;
+    private static final char EMPTY_CELL = '\0';
 
     public static void main(String[] args) {
 
@@ -37,14 +38,8 @@ public class Main {
                 int i = random.nextInt(NUMBEROF_RANDOM_GENERATED_CHARS) + 1;
                 int j = random.nextInt(NUMBEROF_RANDOM_GENERATED_CHARS) + 1;
 
-                if (i == 1 && j == 1) {
-                    continue;
-                    // continue nélkül megoldani... azt nem nagyon használunk
-                    // break 2 esetben = switch, vagy végtelen ciklust akarunk megtörni.
-                    // 47. sorban '\0' karakter is menjen ki private static fájlba...
-                }
 
-                if (map[i][j] == '\0') {
+                if (i != 1 && j != 1 && map[i][j] == EMPTY_CELL) {
                     map[i][j] = betuk.get(betuIndex);
                     abcBetuk.add(map[i][j]);
                     betuIndex++;
@@ -98,7 +93,7 @@ public class Main {
                 }
                 if (map[playerCoordX][playerCoordY] == abcBetuk.get(begyujtottBetuk.size())) {
                     begyujtottBetuk.add(map[playerCoordX][playerCoordY]);
-                    map[playerCoordX][playerCoordY] = '\0';
+                    map[playerCoordX][playerCoordY] = EMPTY_CELL;
                 }
             }
             System.out.println("SIKER! " + lepesek + " lepessel.");
