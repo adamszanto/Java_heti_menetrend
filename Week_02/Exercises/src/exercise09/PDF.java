@@ -1,4 +1,4 @@
-package Exercise09;
+package exercise09;
 
 public class PDF extends File{
     public PDF(String name) {

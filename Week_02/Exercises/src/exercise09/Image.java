@@ -1,4 +1,4 @@
-package Exercise09;
+package exercise09;
 
 public class Image extends File {
     public Image(String name) {
