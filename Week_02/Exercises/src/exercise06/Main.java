@@ -24,6 +24,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        try {
+            milkStore.buyMilk("Zita", "Cow Milk");
+        } catch (UnauthorizedException e) {
+            System.out.println(e.getMessage());
+        }
+
 
 
 
