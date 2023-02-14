@@ -11,5 +11,6 @@ public class Main {
 
     public static long getRandom(int min, int max) {
         return Math.round(Math.random() * (1920 - 55) + 55);
+       // return (long)(Math.random() * (1920 - 55) + 55);
     }
 }

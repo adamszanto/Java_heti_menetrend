@@ -1,10 +1,11 @@
 package exercise02;
 
-public class GraphicsCard {
-    private String manufacturer;
-    private String model;
-    private int memorySizeGB;
-    private String memoryType;
+// Tervezéskor el lehet dönteni, hogy lesz-e speciális esete az osztálynak? Ha nem, akkor finalt érdemes...
+public final class GraphicsCard {
+    private final String manufacturer;
+    private final String model;
+    private final int memorySizeGB;
+    private final String memoryType;
 
     public GraphicsCard(String manufacturer, String model, int memorySize, String memoryType) {
         this.manufacturer = manufacturer;
@@ -16,24 +17,13 @@ public class GraphicsCard {
     public String getManufacturer() {
         return manufacturer;
     }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
     public int getMemorySizeGB() {
         return memorySizeGB;
     }
-
-    public void setMemorySizeGB(int memorySizeGB) {
-        this.memorySizeGB = memorySizeGB;
-    }
-
     public String getMemoryType() {
         return memoryType;
     }
 
-    public void setMemoryType(String memoryType) {
-        this.memoryType = memoryType;
-    }
+    // TODO: equalsHashCode & toString implementálni mert nem tároló jellegű funkciót tölt be elsődlegesen.
+
 }

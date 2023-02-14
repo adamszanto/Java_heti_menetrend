@@ -13,4 +13,8 @@ public class Laptop extends Computer{
         super.describeSpecs();
         System.out.println("Battery capacity is: " + batteryCapacity + "mAh");
     }
+
+    public void castingMethod() {
+        System.out.println("Hey laptop");
+    }
 }

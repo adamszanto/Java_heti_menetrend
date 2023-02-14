@@ -3,6 +3,8 @@ package exercise06;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Customer osztállyal csinálni, lenne BadCustomer gyereke... és ugyan ugy instanceof-al csekkolni a vasarlas elott...
+// TODO: Milk class ősként, és lenne tejtipus örökléssel... azokat listába szedni.
 public class Main {
     public static void main(String[] args) {
 

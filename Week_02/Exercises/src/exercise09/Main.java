@@ -2,6 +2,8 @@ package exercise09;
 
 import java.util.Scanner;
 
+// TODO: Több osztály, PDFHandler stb...
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

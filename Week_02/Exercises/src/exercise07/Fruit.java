@@ -1,17 +1,13 @@
 package exercise07;
 
 public class Fruit {
-    String type;
+    private final String type;
 
-    public Fruit(String name) {
-        this.type = name;
+    public Fruit(String type) {
+        this.type = type;
     }
 
     public String getType() {
         return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

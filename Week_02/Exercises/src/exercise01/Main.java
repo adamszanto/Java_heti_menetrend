@@ -3,9 +3,11 @@ public class Main {
 
     public static void main(String args[]) {
 
+        SpeedUnit speed1 = new SpeedUnit(120, Dimension.KPH);
         Wheel mtbWheel = new Wheel("Presta",406, 19, "mm");
-        MountainBike mtb1 = new MountainBike("B'TWIN", 60, "km/h", mtbWheel, 5);
+        Bike mtb1 = new MountainBike("B'TWIN", 60, speed1, mtbWheel, 5);
 
+        System.out.println(mtb1);
         mtb1.checkBikeSafety();
 
     }

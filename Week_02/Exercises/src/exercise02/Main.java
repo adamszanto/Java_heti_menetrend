@@ -8,6 +8,6 @@ public class Main {
         Laptop laptop1 = new Laptop("Asus", "ProArt StudioBook H7600HM-L2033X", 2000, true, 64, 16, cpu, vga);
 
         System.out.println(laptop1.getClass().getSimpleName() + " details: ");
-        System.out.println(laptop1.toString());
+        System.out.println(laptop1);
     }
 }
