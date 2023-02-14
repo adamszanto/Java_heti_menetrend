@@ -10,7 +10,7 @@ public class Main {
         pc2.describeSpecs();
         laptop1.describeSpecs();
 
-        // ha van egy váltoóznk, akkor baloldala a statikus rész.
+        // ha van egy váltóznk, akkor baloldala a statikus rész.
         // jobboldala a dinamikus rész. a new kulcsszó adja a dinamikus részt. a változón csak olyan elemet hivhatunk meg ami a statikus részen definiálva van.
         if(laptop1 instanceof Laptop) {
             Laptop laptop = (Laptop)laptop1;

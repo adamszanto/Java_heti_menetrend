@@ -1,7 +1,7 @@
 package exercise09;
 
-public class Image extends File {
-    public Image(String name) {
+public class ImageHandler extends FileHandler {
+    public ImageHandler(String name) {
         super(name);
     }
 

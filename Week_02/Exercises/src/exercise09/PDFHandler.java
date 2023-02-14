@@ -1,7 +1,7 @@
 package exercise09;
 
-public class PDF extends File{
-    public PDF(String name) {
+public class PDFHandler extends FileHandler {
+    public PDFHandler(String name) {
         super(name);
     }
 

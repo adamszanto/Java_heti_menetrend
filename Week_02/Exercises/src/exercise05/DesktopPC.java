@@ -1,9 +1,9 @@
 package exercise05;
 
 public class DesktopPC extends Computer{
-    private String monitorManufacturer;
-    private int monitorColl;
-    private boolean keyboardAndMouse;
+    private final String monitorManufacturer;
+    private final int monitorColl;
+    private final boolean keyboardAndMouse;
 
     public DesktopPC(String manufacturer, int ramSize, int diskSize, boolean hasSSD, boolean hasVGA, int numberOfUSBSlot, String monitorManufacturer, int monitorColl, boolean keyboardAndMouse) {
         super(manufacturer, ramSize, diskSize, hasSSD, hasVGA, numberOfUSBSlot);

@@ -3,27 +3,23 @@ package exercise11;
 public class Television {
     private String manufacturer;
     private String type;
-    private int counter;
-    private boolean isWorking;
-    private boolean isTurnedOn;
+    private TelevisionCounter counter;
 
     public Television(String manufacturer, String type) {
         this.manufacturer = manufacturer;
         this.type = type;
-        this.counter = 0;
-        this.isWorking = true;
-        this.isTurnedOn = false;
+        counter = new TelevisionCounter();
     }
 
     public void pushButton() {
-        if(counter < 10 && !isTurnedOn) {
-            counter++;
-            System.out.println("Television is turned on. Turn ons left: " + (10 -counter));
-            isTurnedOn = true;
+        if(counter.getCounter() < 10 && !counter.isTurnedOn()) {
+            counter.addToCounter();
+            System.out.println("Television is turned on. Turn ons left: " + (10 - counter.getCounter()));
+            counter.toggleTurnedOn();
 
-        } else if (counter < 10 && isTurnedOn) {
+        } else if (counter.getCounter() < 10 && counter.isTurnedOn()) {
             System.out.println("Television is turned off.");
-            isTurnedOn = false;
+            counter.toggleTurnedOn();
         } else {
             System.out.println("Television exceeded its limit of 10 turn ons.");
         }

@@ -2,6 +2,7 @@ package exercise03;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class House {
     private String address;
@@ -73,4 +74,35 @@ public class House {
         }
     }
 
+    @Override
+    public String toString() {
+        return "House{" +
+                "address='" + address + '\'' +
+                ", numberOfFloors=" + numberOfFloors +
+                ", doors=" + doors +
+                ", windows=" + windows +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        House house = (House) o;
+
+        if (numberOfFloors != house.numberOfFloors) return false;
+        if (!Objects.equals(address, house.address)) return false;
+        if (!Objects.equals(doors, house.doors)) return false;
+        return Objects.equals(windows, house.windows);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = address != null ? address.hashCode() : 0;
+        result = 31 * result + numberOfFloors;
+        result = 31 * result + (doors != null ? doors.hashCode() : 0);
+        result = 31 * result + (windows != null ? windows.hashCode() : 0);
+        return result;
+    }
 }

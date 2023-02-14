@@ -3,7 +3,7 @@ package exercise08;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Library {
+public final class Library {
     private final List<Book> books;
 
     public Library(List<Book> books) {

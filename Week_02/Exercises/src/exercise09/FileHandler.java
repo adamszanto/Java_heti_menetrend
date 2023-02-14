@@ -1,9 +1,9 @@
 package exercise09;
 
-public class File {
+public class FileHandler {
     private final String name;
 
-    public File(String name) {
+    public FileHandler(String name) {
         this.name = name;
     }
 

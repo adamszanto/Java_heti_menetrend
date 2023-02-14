@@ -11,6 +11,5 @@ public class Main {
         Computer laptop = new Laptop(processor, memory, storage, graphicsCard, 8200);
         User user1 = new User("Peter", laptop);
 
-
     }
 }

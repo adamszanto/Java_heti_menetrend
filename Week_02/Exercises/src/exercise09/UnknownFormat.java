@@ -2,7 +2,7 @@ package exercise09;
 
 import java.util.Random;
 
-public class UnknownFormat extends File{
+public class UnknownFormat extends FileHandler {
     public UnknownFormat(String name) {
         super(name);
     }
