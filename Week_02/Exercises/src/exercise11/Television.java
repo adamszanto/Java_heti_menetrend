@@ -1,9 +1,10 @@
 package exercise11;
 
 public class Television {
-    private String manufacturer;
-    private String type;
-    private TelevisionCounter counter;
+    private static final int MAX_TURN_ONS = 10;
+    private final String manufacturer;
+    private final String type;
+    private final TelevisionCounter counter;
 
     public Television(String manufacturer, String type) {
         this.manufacturer = manufacturer;
@@ -12,12 +13,12 @@ public class Television {
     }
 
     public void pushButton() {
-        if(counter.getCounter() < 10 && !counter.isTurnedOn()) {
+        if(counter.getCounter() < MAX_TURN_ONS && !counter.isTurnedOn()) {
             counter.addToCounter();
-            System.out.println("Television is turned on. Turn ons left: " + (10 - counter.getCounter()));
+            System.out.println("Television is turned on. Turn ons left: " + (MAX_TURN_ONS - counter.getCounter()));
             counter.toggleTurnedOn();
 
-        } else if (counter.getCounter() < 10 && counter.isTurnedOn()) {
+        } else if (counter.getCounter() < MAX_TURN_ONS && counter.isTurnedOn()) {
             System.out.println("Television is turned off.");
             counter.toggleTurnedOn();
         } else {

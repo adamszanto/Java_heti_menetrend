@@ -18,4 +18,6 @@ public class FileHandler {
         }
         return name.substring(dotIndex+1);
     }
+
+
 }

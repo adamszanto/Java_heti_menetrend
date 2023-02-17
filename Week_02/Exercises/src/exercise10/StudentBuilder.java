@@ -1,12 +1,10 @@
 package exercise10;
 
+// TODO: Ha valamit kotelezoen akarunk, akkor konstruktorba rakjuk... nem pedig withXY metodus...
+
 public class StudentBuilder {
     private String name;
     private int age;
-
-    StudentBuilder() {
-
-    }
 
     public StudentBuilder withName(String name) {
         this.name = name;

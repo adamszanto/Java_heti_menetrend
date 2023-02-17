@@ -32,11 +32,12 @@ public final class TelevisionCounter {
     }
 
     public void toggleTurnedOn() {
-        if(isTurnedOn) {
-            isTurnedOn = false;
-        } else {
-            isTurnedOn = true;
-        }
+//        if(isTurnedOn) {
+//            isTurnedOn = false;
+//        } else {
+//            isTurnedOn = true;
+//        }
+        isTurnedOn = !isTurnedOn;
     }
 
     @Override

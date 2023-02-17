@@ -10,13 +10,17 @@ public class Main {
         pc2.describeSpecs();
         laptop1.describeSpecs();
 
+
         // ha van egy váltóznk, akkor baloldala a statikus rész.
-        // jobboldala a dinamikus rész. a new kulcsszó adja a dinamikus részt. a változón csak olyan elemet hivhatunk meg ami a statikus részen definiálva van.
+        // jobboldala a dinamikus rész. a new kulcsszó adja a dinamikus részt.
+        // a változón csak olyan elemet hivhatunk meg ami a statikus részen definiálva van.
         if(laptop1 instanceof Laptop) {
             Laptop laptop = (Laptop)laptop1;
             laptop.castingMethod();
         }
-        // laptop1 computer-t átcastoljuk laptoppá. ezáltal meg tudjuk hivni azokat a metodusokat is, amik tenyleg csak a laptop-ban vannak megirva.
+
+        // laptop1 computer-t átcastoljuk laptoppá. ezáltal meg tudjuk hivni azokat a metodusokat is,
+        // amik tenyleg csak a laptop-ban vannak megirva.
         // ha nem sikerül akkor castClassExceptiont dob...
     }
 }

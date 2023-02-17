@@ -1,6 +1,7 @@
 package exercise08;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public final class Library {
@@ -11,7 +12,9 @@ public final class Library {
     }
 
     public List<Book> getBooks() {
-        return books;
+        // TODO: Listat visszaadni "veszelyes", ezert kezelni kell:
+        // Kapunk egy olyan listat, ami immutable, ezt biztonsagosan oda tudjuk adni a kulvilagnak
+        return Collections.unmodifiableList(books);
     }
 
     public Book get(int num) {

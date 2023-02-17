@@ -1,5 +1,5 @@
 package exercise12;
-
+// TODO: Osztályokat csekkolni: final kulcsszó, getter-setter, equals, hashcode, tostring implementálni
 public class Main {
     public static void main(String[] args) {
 

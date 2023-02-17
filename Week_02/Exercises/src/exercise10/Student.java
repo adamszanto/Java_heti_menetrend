@@ -1,5 +1,5 @@
 package exercise10;
-
+//TODO : Equals, hashcode, toString
 public class Student {
     private final String name;
     private final int age;
