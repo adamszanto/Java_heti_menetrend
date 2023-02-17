@@ -1,4 +1,5 @@
 package exercise09v3;
 
-public class FileHandler {
+public interface FileHandler {
+    boolean process(String stringInput);
 }

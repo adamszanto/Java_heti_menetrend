@@ -25,4 +25,19 @@ public class Television {
             System.out.println("Television exceeded its limit of 10 turn ons.");
         }
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

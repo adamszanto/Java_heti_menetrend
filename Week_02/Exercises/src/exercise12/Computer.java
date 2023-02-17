@@ -13,5 +13,20 @@ public abstract class Computer {
         this.graphicsCard = graphicsCard;
     }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     // TODO: absztrakt metodus bekapcsolni() minden osztalyhoz egyedileg megoldani kulon-kulon
 }
