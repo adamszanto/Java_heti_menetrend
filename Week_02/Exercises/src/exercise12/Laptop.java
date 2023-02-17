@@ -15,4 +15,34 @@ public class Laptop extends Computer{
     public void setBatteryCapacitymAh(int batteryCapacitymAh) {
         this.batteryCapacitymAh = batteryCapacitymAh;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Laptop laptop = (Laptop) o;
+
+        return batteryCapacitymAh == laptop.batteryCapacitymAh;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + batteryCapacitymAh;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Laptop{" +
+                "batteryCapacitymAh=" + batteryCapacitymAh +
+                '}';
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Laptop has turned on.");
+    }
 }

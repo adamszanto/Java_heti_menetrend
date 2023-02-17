@@ -28,5 +28,7 @@ public abstract class Computer {
         return super.toString();
     }
 
+    public abstract void turnOn();
+
     // TODO: absztrakt metodus bekapcsolni() minden osztalyhoz egyedileg megoldani kulon-kulon
 }

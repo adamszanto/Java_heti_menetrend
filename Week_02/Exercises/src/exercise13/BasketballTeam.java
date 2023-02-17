@@ -16,17 +16,12 @@ public class BasketballTeam extends SportsTeam{
         return wins;
     }
 
-    public void setWins(int wins) {
-        this.wins = wins;
-    }
 
     public int getLosses() {
         return losses;
     }
 
-    public void setLosses(int losses) {
-        this.losses = losses;
-    }
+
 
     public void addWin() {
         this.wins++;

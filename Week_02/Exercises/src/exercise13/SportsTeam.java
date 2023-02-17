@@ -1,8 +1,8 @@
 package exercise13;
 
 public class SportsTeam {
-    private String teamName;
-    private String location;
+    private final String teamName;
+    private final String location;
     private int numberOfPlayers;
 
     public SportsTeam(String name, String location) {
@@ -14,17 +14,11 @@ public class SportsTeam {
         return teamName;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     public int getNumberOfPlayers() {
         return numberOfPlayers;
