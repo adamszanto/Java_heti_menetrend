@@ -7,7 +7,12 @@ public class Main {
 
     private static int playerX;
     private static int playerY;
+
+    public static void print() {
+        for()
+    }
+
     public static void main(String[] args) {
-        FIELD[0][0] = 2;
+
     }
 }
