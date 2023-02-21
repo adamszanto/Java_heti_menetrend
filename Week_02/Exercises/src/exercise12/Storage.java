@@ -3,9 +3,9 @@ package exercise12;
 import java.util.Objects;
 
 public class Storage {
-    private String manufacturer;
-    private String type;
-    private int storageGB;
+    private final String manufacturer;
+    private final String type;
+    private final int storageGB;
 
     public Storage(String manufacturer, String type, int storageGB) {
         this.manufacturer = manufacturer;
@@ -17,25 +17,16 @@ public class Storage {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getStorageGB() {
         return storageGB;
     }
 
-    public void setStorageGB(int storageGB) {
-        this.storageGB = storageGB;
-    }
 
     @Override
     public boolean equals(Object o) {

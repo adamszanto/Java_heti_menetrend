@@ -3,7 +3,7 @@ package exercise12;
 import java.util.Objects;
 
 public class DesktopPC extends Computer {
-    private String PCcaseColor;
+    private final String PCcaseColor;
     public DesktopPC(Processor processor, Memory memory, Storage storage, GraphicsCard graphicsCard, String computerCaseType) {
         super(processor, memory, storage, graphicsCard);
         this.PCcaseColor = computerCaseType;
@@ -13,9 +13,6 @@ public class DesktopPC extends Computer {
         return PCcaseColor;
     }
 
-    public void setPCcaseColor(String PCcaseColor) {
-        this.PCcaseColor = PCcaseColor;
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -3,9 +3,9 @@ package exercise12;
 import java.util.Objects;
 
 public class GraphicsCard {
-    private String manufacturer;
-    private String type;
-    private int memoryCapacityGB;
+    private final String manufacturer;
+    private final String type;
+    private final int memoryCapacityGB;
 
     public GraphicsCard(String manufacturer, String type, int memoryCapacityGB) {
         this.manufacturer = manufacturer;
@@ -17,25 +17,16 @@ public class GraphicsCard {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
 
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getMemoryCapacityGB() {
         return memoryCapacityGB;
     }
 
-    public void setMemoryCapacityGB(int memoryCapacityGB) {
-        this.memoryCapacityGB = memoryCapacityGB;
-    }
 
     @Override
     public boolean equals(Object o) {

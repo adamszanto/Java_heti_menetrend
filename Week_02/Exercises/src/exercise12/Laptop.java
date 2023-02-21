@@ -1,7 +1,7 @@
 package exercise12;
 
 public class Laptop extends Computer{
-    private int batteryCapacitymAh;
+    private final int batteryCapacitymAh;
 
     public Laptop(Processor processor, Memory memory, Storage storage, GraphicsCard graphicsCard, int batteryCapacitymAh) {
         super(processor, memory, storage, graphicsCard);
@@ -12,9 +12,6 @@ public class Laptop extends Computer{
         return batteryCapacitymAh;
     }
 
-    public void setBatteryCapacitymAh(int batteryCapacitymAh) {
-        this.batteryCapacitymAh = batteryCapacitymAh;
-    }
 
     @Override
     public boolean equals(Object o) {

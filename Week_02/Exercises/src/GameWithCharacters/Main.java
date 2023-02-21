@@ -131,7 +131,7 @@ public class Main {
 
         for(int i = 0; i < FIELD.length; i++) {
             for(int j = 0; i < FIELD[i].length; j++) {
-                if(FIELD[i][j] >= 'a' && FIELD[i][j] >= 'z' && FIELD[i][j] < c) {
+                if(FIELD[i][j] >= 'a' && FIELD[i][j] <= 'z' && FIELD[i][j] < c) {
                     return false;
                 }
             }

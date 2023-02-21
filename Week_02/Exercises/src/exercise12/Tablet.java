@@ -3,7 +3,7 @@ package exercise12;
 import java.util.Objects;
 
 public class Tablet extends Computer{
-    private String touchScreentype;
+    private final String touchScreentype;
 
     public Tablet(Processor processor, Memory memory, Storage storage, GraphicsCard graphicsCard, String touchScreentype) {
         super(processor, memory, storage, graphicsCard);
@@ -12,10 +12,6 @@ public class Tablet extends Computer{
 
     public String getTouchScreentype() {
         return touchScreentype;
-    }
-
-    public void setTouchScreentype(String touchScreentype) {
-        this.touchScreentype = touchScreentype;
     }
 
     @Override

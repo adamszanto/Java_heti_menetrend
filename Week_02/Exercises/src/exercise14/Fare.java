@@ -32,4 +32,12 @@ public class Fare {
     public void setFareStops(List<Stop> fareStops) {
         this.fareStops = fareStops;
     }
+
+    @Override
+    public String toString() {
+        return "Fare{" +
+                "fareCost=" + fareCost +
+                ", fareStops=" + fareStops +
+                '}';
+    }
 }
