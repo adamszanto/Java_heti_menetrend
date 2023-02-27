@@ -1,6 +1,6 @@
 package exercise00;
 
-public class Hero implements Comparable<Hero>{
+public class Hero {
     private final String name;
     private final int power;
 
@@ -26,8 +26,4 @@ public class Hero implements Comparable<Hero>{
         return name;
     }
 
-    @Override
-    public int compareTo(Hero o) {
-        return name.compareTo(o.name);
-    }
 }

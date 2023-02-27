@@ -11,7 +11,7 @@ public class Main {
         Hero hero2 = new Hero("Al", 15);
 
         List<Hero> heroes = Arrays.asList(hero1, hero2);
-        Collections.sort(heroes);
+        Collections.sort(heroes, new HeroNameComparator());
         for(Hero h1 : heroes) {
             System.out.println(h1);
         }
