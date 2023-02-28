@@ -6,8 +6,8 @@ public class Kitchen extends Product{
     private boolean isPickedUp;
     private boolean isTurnedOn;
 
-    public Kitchen(PRODUCT_TYPE productType, String barcode, int price, String manufacturer) {
-        super(productType, barcode, price, manufacturer);
+    public Kitchen(String barcode, PRODUCT_TYPE productType, String manufacturer, int price) {
+        super(barcode, productType, manufacturer, price);
         this.isPickedUp = false;
         this.isTurnedOn = false;
     }

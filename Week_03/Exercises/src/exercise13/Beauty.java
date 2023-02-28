@@ -5,8 +5,8 @@ import java.util.Date;
 public class Beauty extends Product{
     private int weightKg;
 
-    public Beauty(PRODUCT_TYPE productType, String barcode, int price, int weightKg, String manufacturer) {
-        super(productType, barcode, price, manufacturer);
+    public Beauty(String barcode, PRODUCT_TYPE productType, String manufacturer, int price, int weightKg) {
+        super(barcode,productType, manufacturer, price);
         this.weightKg = weightKg;
     }
 }

@@ -19,19 +19,16 @@ public class Main {
 
                         switch (command[0]) {
                             case "ADD":
-                                System.out.println("This is an ADD command");
-                                warehouse1.addProduct(command[1], (PRODUCT_TYPE.AVERAGE), command[3], Integer.parseInt(command[4]), command[5]);
+                                warehouse1.addProduct(command[1], PRODUCT_TYPE.AVERAGE, command[3], command[4], command[5]);
                                 break;
 
                             case "REMOVE":
-                                System.out.println("This is a REMOVE command");
                                 warehouse1.removeProduct(command[1]);
                                 break;
                             case "REPORT":
-                                System.out.println("This is a REPORT command");
+                                warehouse1.printUsableEntertainmentProducts();
                                 break;
                             case "EXIT":
-                                System.out.println("This is an EXIT commad");
                                 flag = false;
                                 break;
                         }
@@ -50,10 +47,17 @@ public class Main {
                     System.out.println(prod);
                 }
 
-
-
-      //  Product product1 = ProductFactory.productFactory("1000324", PRODUCT_TYPE.AVERAGE, "Sony", 13000, "Entertainment");
-      //  System.out.println(product1.toString());
+/*
+        ADD 1001 AVERAGE Sony 850 Entertainment
+        ADD 1002 POPULAR Sony 849 Entertainment
+        ADD 1005 AVERAGE Samsung 1100 Beauty
+        ADD 1006 AVERAGE Samsung 1125 Beauty
+        ADD 1010 LUXURY_ITEM Sencor 1900 Kitchen
+        ADD 1011 AVERAGE Panasonic 1131 Kitchen
+        ADD 1003 AVERAGE Sony 750 Entertainment
+        REPORT
+        REMOVE 1001
+*/
     }
 
 }
