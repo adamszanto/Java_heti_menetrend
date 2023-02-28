@@ -3,7 +3,7 @@ package exercise13;
 import java.lang.reflect.InvocationHandler;
 import java.util.*;
 
-public class Warehouse {
+public class Warehouse implements Iterable<Product>{
     private Set<Product> productList;
 
     public Warehouse() {
@@ -15,4 +15,16 @@ public class Warehouse {
         productList.add(newProduct);
     }
 
+    public void removeProduct(String barcode) {
+        productList.remove(barcode);
+    }
+
+    public void reportProducts() {
+        System.out.println("Product list: " + productList.size() );
+    }
+
+    @Override
+    public Iterator<Product> iterator() {
+        return productList.iterator();
+    }
 }

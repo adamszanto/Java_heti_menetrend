@@ -25,6 +25,7 @@ public class Main {
 
                             case "REMOVE":
                                 System.out.println("This is a REMOVE command");
+                                warehouse1.removeProduct(command[1]);
                                 break;
                             case "REPORT":
                                 System.out.println("This is a REPORT command");
@@ -44,7 +45,10 @@ public class Main {
                         throw new RuntimeException(e);
                     }
                 }
-        System.out.println(warehouse1);
+
+                for(Product prod : warehouse1) {
+                    System.out.println(prod);
+                }
 
 
 
