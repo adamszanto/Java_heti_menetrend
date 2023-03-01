@@ -6,7 +6,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Set<Integer> numSet = new HashSet<>();
+        Set<Integer> numSet = new LinkedHashSet<>();
         List<Integer> numList = new ArrayList<>(100);
 
         try(Scanner sc = new Scanner(System.in)) {

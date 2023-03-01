@@ -1,12 +1,11 @@
-package exercise13;
+package exercise13.Product;
 
-import java.util.Date;
+public class Kitchen extends Product {
 
-public class Kitchen extends Product{
     private boolean isPickedUp;
     private boolean isTurnedOn;
 
-    public Kitchen(String barcode, PRODUCT_TYPE productType, String manufacturer, int price) {
+    public Kitchen(String barcode, ProductType productType, String manufacturer, int price) {
         super(barcode, productType, manufacturer, price);
         this.isPickedUp = false;
         this.isTurnedOn = false;

@@ -1,5 +1,7 @@
 package exercise03;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println(divideNums2(3,5));
@@ -20,7 +22,8 @@ public class Main {
     }
 
     public static double divideNums2(double a, double b) throws ArithmeticException {
-        if(b == 0) {
+        // TODO: double ertekeket osszehasonlitani inkabb igy elegansabb:
+        if(new BigDecimal(b).compareTo(BigDecimal.ZERO) == 0) {
             throw new ArithmeticException("Can't be divided by Zero");
         }
         return a/b;

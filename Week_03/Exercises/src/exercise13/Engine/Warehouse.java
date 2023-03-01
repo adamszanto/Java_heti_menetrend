@@ -1,6 +1,9 @@
-package exercise13;
+package exercise13.Engine;
 
-import java.lang.reflect.InvocationHandler;
+import exercise13.Product.Entertainment;
+import exercise13.Product.Product;
+import exercise13.Product.ProductFactory;
+
 import java.util.*;
 
 public class Warehouse implements Iterable<Product>{
@@ -10,8 +13,8 @@ public class Warehouse implements Iterable<Product>{
         this.productList = new HashSet<>();
     }
 
-    public void addProduct(String barcode, PRODUCT_TYPE type, String manufacturer, String price, String category) {
-        Product newProduct = ProductFactory.productFactory(barcode, PRODUCT_TYPE.AVERAGE, manufacturer, Integer.parseInt(price), category);
+    public void addProduct(String barcode, String type, String manufacturer, String price, String category) {
+        Product newProduct = ProductFactory.productFactory(barcode, type, manufacturer, Integer.parseInt(price), category);
         productList.add(newProduct);
     }
 

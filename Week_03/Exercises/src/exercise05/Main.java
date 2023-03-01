@@ -25,10 +25,10 @@ public class Main {
                 recipeList.add(line);
 
             }
+            return recipeList;
+
         } catch(IOException ex) {
             throw new ReadFileException("Error message: ", ex);
-        } finally {
-            return recipeList;
         }
     }
 

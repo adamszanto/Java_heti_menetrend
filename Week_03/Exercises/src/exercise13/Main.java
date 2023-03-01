@@ -1,16 +1,25 @@
 package exercise13;
 
+import exercise13.Engine.Warehouse;
+import exercise13.Product.Product;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Warehouse warehouse1 = new Warehouse();
         boolean flag = true;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        // TODO: ConsoleReader, InputReader, stb. kiszervezni ezt a kódot:
+        // TODO: Try-with-resources legyen a br is...
+        // TODO: ADD, REMOVE, REPORT, EXIT = Static final típusú változók legyenek
+        // TODO: IKEACONSTANT nevű osztály, ami final osztály privát konstruktorral és konstansokat tartalmaz.
+        // TODO: Ökölszabály: Csak konstansok tárolására használt osztály legyen final, és privát konstruktorral ellátott.
+        // TODO: Nem kell a beolvasás helyén feldolgozni a parancsot. Kiszervezni külön metódusba/osztályba? Váljon el ez a kettő. A CommandReader átad > a CommandProcessor classnak stb...
+        // TODO: ProductStore / Warehouse osztály is legyen, ami tárol. A CommandProcessor tud adni neki Productot.
+        // TODO: Reportgenerálás megint csak 1 új osztály legyen...ReportGenerator pl.
 
                 try {
                     while (flag) {
@@ -19,7 +28,7 @@ public class Main {
 
                         switch (command[0]) {
                             case "ADD":
-                                warehouse1.addProduct(command[1], PRODUCT_TYPE.AVERAGE, command[3], command[4], command[5]);
+                                warehouse1.addProduct(command[1], command[2], command[3], command[4], command[5]);
                                 break;
 
                             case "REMOVE":
@@ -35,12 +44,6 @@ public class Main {
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-                } finally {
-                    try {
-                        br.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
                 }
 
                 for(Product prod : warehouse1) {

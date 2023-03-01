@@ -31,4 +31,15 @@ public class Main {
         }
     }
 
+    // TODO: Exercise 05 kiegészítve. Read all values as text volt az eset:
+    public int returnNumber(String line) {
+        try {
+            int x = Integer.parseInt(line);
+            return x;
+        } catch (NumberFormatException ex) {
+            System.out.println("Error :" + ex);
+            return -1;
+        }
+    }
+
 }
