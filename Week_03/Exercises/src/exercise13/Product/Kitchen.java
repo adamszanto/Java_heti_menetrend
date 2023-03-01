@@ -11,6 +11,14 @@ public class Kitchen extends Product {
         this.isTurnedOn = false;
     }
 
+    @Override
+    public String toString() {
+        return "Kitchen{" +
+                "isPickedUp=" + isPickedUp +
+                ", isTurnedOn=" + isTurnedOn +
+                '}' + super.toString();
+    }
+
     public void pickUp() {
         isPickedUp = !isPickedUp;
     }

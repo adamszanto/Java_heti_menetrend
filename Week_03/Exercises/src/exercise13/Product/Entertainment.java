@@ -13,6 +13,16 @@ public class Entertainment extends Product {
         this.isTurnedOn = false;
     }
 
+    @Override
+    public String toString() {
+        return "Entertainment{" +
+                "numberOfTurnOns=" + numberOfTurnOns +
+                ", isTurnedOn=" + isTurnedOn +
+                ", turnOnCounter=" + turnOnCounter +
+                ", turnedOnTooManyTimes=" + turnedOnTooManyTimes +
+                '}' + super.toString();
+    }
+
     public int getTurnOnCounter() {
         return turnOnCounter;
     }
