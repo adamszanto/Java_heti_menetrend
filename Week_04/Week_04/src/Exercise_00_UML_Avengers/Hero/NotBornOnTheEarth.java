@@ -1,11 +1,12 @@
-package Exercise_00_UML_Avengers;
+package Exercise_00_UML_Avengers.Hero;
 
 import Exercise_00_UML_Avengers.Abilities.CanSwim;
 import Exercise_00_UML_Avengers.Abilities.CanThrowFireballs;
+import Exercise_00_UML_Avengers.Hero.Hero;
 
 public class NotBornOnTheEarth extends Hero implements CanSwim, CanThrowFireballs {
 
-    public NotBornOnTheEarth(String name, Integer power, InfinityStone stone) {
+    public NotBornOnTheEarth(String name, Integer power, String stone) {
         super(name, power, stone);
     }
 

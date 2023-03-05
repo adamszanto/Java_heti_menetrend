@@ -1,6 +1,6 @@
 package Exercise_00_UML_Avengers.Comparator;
 
-import Exercise_00_UML_Avengers.Hero;
+import Exercise_00_UML_Avengers.Hero.Hero;
 
 import java.util.Comparator;
 

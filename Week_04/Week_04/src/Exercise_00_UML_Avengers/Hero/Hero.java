@@ -1,14 +1,16 @@
-package Exercise_00_UML_Avengers;
+package Exercise_00_UML_Avengers.Hero;
+
+import Exercise_00_UML_Avengers.InfinityStone;
 
 public abstract class Hero {
     private final String name;
     private final Integer power;
     private final InfinityStone stone;
 
-    public Hero(String name, Integer power, InfinityStone stone) {
+    public Hero(String name, Integer power, String stone) {
         this.name = name;
         this.power = power;
-        this.stone = stone;
+        this.stone = InfinityStone.getTimeStone();
     }
 
     public String getName() {

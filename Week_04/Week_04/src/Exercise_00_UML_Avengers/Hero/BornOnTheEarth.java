@@ -1,10 +1,10 @@
-package Exercise_00_UML_Avengers;
+package Exercise_00_UML_Avengers.Hero;
 
 public class BornOnTheEarth extends Hero {
 
     private final Passport passport;
 
-    public BornOnTheEarth(String name, Integer power, InfinityStone stone, Passport passport) {
+    public BornOnTheEarth(String name, Integer power, String stone, Passport passport) {
         super(name, power, stone);
         this.passport = passport;
     }

@@ -1,4 +1,4 @@
-package Exercise_00_UML_Avengers;
+package Exercise_00_UML_Avengers.Hero;
 
 import java.util.Random;
 
