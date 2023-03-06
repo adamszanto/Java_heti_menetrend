@@ -1,6 +1,6 @@
-package exercise13.Product;
+package exercise13.product;
 
-import exercise13.Engine.Warehouse;
+import exercise13.engine.Warehouse;
 
 public class ProductFactory extends Warehouse {
 

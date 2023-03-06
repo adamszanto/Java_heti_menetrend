@@ -1,4 +1,4 @@
-package exercise13.Product;
+package exercise13.product;
 
 import java.util.Objects;
 

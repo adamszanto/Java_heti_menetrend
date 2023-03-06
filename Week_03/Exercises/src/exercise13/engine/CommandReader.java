@@ -1,7 +1,7 @@
-package exercise13.Engine;
+package exercise13.engine;
 
-import exercise13.Product.Product;
-import exercise13.Report.ReportGenerator;
+import exercise13.product.Product;
+import exercise13.report.ReportGenerator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,21 +15,21 @@ public class CommandReader {
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             while (flag) {
-                System.out.println(IKEACONSTANT.ADD + " " + IKEACONSTANT.REMOVE + " " + IKEACONSTANT.REPORT + " " + IKEACONSTANT.EXIT);
+                System.out.println(Ikeaconstant.ADD + " " + Ikeaconstant.REMOVE + " " + Ikeaconstant.REPORT + " " + Ikeaconstant.EXIT);
                 String[] command = br.readLine().split(" ");
 
                 switch (command[0]) {
-                    case IKEACONSTANT.ADD:
+                    case Ikeaconstant.ADD:
                         CommandProcessor.addProduct(CommandProcessor.newProduct(command[1], command[2], command[3], command[4], command[5]), warehouse1);
                         break;
 
-                    case IKEACONSTANT.REMOVE:
+                    case Ikeaconstant.REMOVE:
                         CommandProcessor.removeProduct(command[1], warehouse1);
                         break;
-                    case IKEACONSTANT.REPORT:
+                    case Ikeaconstant.REPORT:
                         ReportGenerator.reportGenerator(warehouse1);
                         break;
-                    case IKEACONSTANT.EXIT:
+                    case Ikeaconstant.EXIT:
                         flag = false;
                         break;
                 }

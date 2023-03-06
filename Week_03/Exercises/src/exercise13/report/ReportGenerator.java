@@ -1,6 +1,6 @@
-package exercise13.Report;
+package exercise13.report;
 
-import exercise13.Engine.Warehouse;
+import exercise13.engine.Warehouse;
 
 public class ReportGenerator {
     public static void reportGenerator(Warehouse warehouse1) {

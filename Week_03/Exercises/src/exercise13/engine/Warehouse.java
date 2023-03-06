@@ -1,13 +1,12 @@
-package exercise13.Engine;
+package exercise13.engine;
 
-import exercise13.Product.Entertainment;
-import exercise13.Product.Product;
-import exercise13.Product.ProductFactory;
+import exercise13.product.Entertainment;
+import exercise13.product.Product;
 
 import java.util.*;
 
 public class Warehouse implements Iterable<Product>{
-    private Set<Product> productList;
+    private final Set<Product> productList;
 
     public Warehouse() {
         this.productList = new HashSet<>();
@@ -18,10 +17,13 @@ public class Warehouse implements Iterable<Product>{
     }
 
     public void removeProduct(String barcode) {
-        for(Product product : productList) {
-            if(product.getBarcode().equals(barcode)) {
-                productList.remove(product);
-                break;
+        Iterator<Product> iterator = productList.iterator();
+
+        while(iterator().hasNext()) {
+            Product p = iterator().next();
+
+            if(p.getBarcode().equals(barcode)){
+                iterator.remove();
             }
         }
     }

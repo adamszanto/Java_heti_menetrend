@@ -1,7 +1,7 @@
-package exercise13.Engine;
+package exercise13.engine;
 
-import exercise13.Product.Product;
-import exercise13.Product.ProductFactory;
+import exercise13.product.Product;
+import exercise13.product.ProductFactory;
 
 public class CommandProcessor {
 

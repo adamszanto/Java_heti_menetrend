@@ -1,4 +1,4 @@
-package exercise13.Product;
+package exercise13.product;
 
 public class Entertainment extends Product {
     private final int numberOfTurnOns = 5;

@@ -1,12 +1,7 @@
 package exercise13;
 
-import exercise13.Engine.CommandReader;
-import exercise13.Engine.Warehouse;
-import exercise13.Product.Product;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import exercise13.engine.CommandReader;
+import exercise13.engine.Warehouse;
 
 public class Main {
     public static void main(String[] args) {

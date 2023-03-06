@@ -1,4 +1,4 @@
-package exercise13.Product;
+package exercise13.product;
 
 // TODO: Enumoknál kötelező megjegyezni pár metódust: valueOf() statikus metódus. ProductType.valueOf(String string) ... ha talál match-et rá akkor visszaadja azt az enum-ot.
 // TODO: name(), ordinal() ami még fontos... előbbi a megnevezést (CHEAP, stb.) az ordinal() megadja hogy hanyadik helyen van a felsorolásban...

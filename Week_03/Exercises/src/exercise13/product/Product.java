@@ -1,8 +1,6 @@
-package exercise13.Product;
+package exercise13.product;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Date;
 
 // TODO: - Olyan Comparator/Comparable, amellyel barcode alapján össze lehet hasonlítani elemeket.
 // TODO: PIPA Barcode az ne String legyen, hanem Objektum legyen.
