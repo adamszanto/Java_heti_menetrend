@@ -1,5 +1,6 @@
-package Exercise_00_UML_Avengers.Hero;
+package Exercise_00_UML_Avengers.hero;
 
+// TODO: Equals, Hashcode majd implementálni... + toString
 public class BornOnTheEarth extends Hero {
 
     private final Passport passport;

@@ -1,15 +1,14 @@
 package exercise13.product;
 
-import exercise13.engine.Warehouse;
+public class ProductFactory {
 
-public class ProductFactory extends Warehouse {
+    public Product create(String barcode, String type, String manufacturer, int price, String specialType) {
 
-    public static Product productFactory(String barcode, String type, String manufacturer, int price, String specialType) {
-        if(specialType.equals("Beauty")) {
+        if ("Beauty".equals(specialType)) {
             return new Beauty(barcode, ProductType.valueOf(type), manufacturer, price, 10);
-        } else if(specialType.equals("Entertainment")) {
+        } else if ("Entertainment".equals(specialType)) {
             return new Entertainment(barcode, ProductType.valueOf(type), manufacturer, price);
-        } else if(specialType.equals("Kitchen")) {
+        } else if ("Kitchen".equals(specialType)) {
             return new Kitchen(barcode, ProductType.valueOf(type), manufacturer, price);
         }
         return null;

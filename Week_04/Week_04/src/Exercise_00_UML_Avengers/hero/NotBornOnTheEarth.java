@@ -1,8 +1,9 @@
-package Exercise_00_UML_Avengers.Hero;
+package Exercise_00_UML_Avengers.hero;
 
-import Exercise_00_UML_Avengers.Abilities.CanSwim;
-import Exercise_00_UML_Avengers.Abilities.CanThrowFireballs;
-import Exercise_00_UML_Avengers.Hero.Hero;
+import Exercise_00_UML_Avengers.abilities.CanSwim;
+import Exercise_00_UML_Avengers.abilities.CanThrowFireballs;
+
+// TODO: toString implementálni ami meghívja a super.toString()-et...
 
 public class NotBornOnTheEarth extends Hero implements CanSwim, CanThrowFireballs {
 
@@ -18,5 +19,10 @@ public class NotBornOnTheEarth extends Hero implements CanSwim, CanThrowFireball
     @Override
     public void canThrowFireballs() {
         System.out.println(super.getName() + " can throw fireballs!");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

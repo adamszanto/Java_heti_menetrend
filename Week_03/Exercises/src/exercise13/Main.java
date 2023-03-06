@@ -1,12 +1,19 @@
 package exercise13;
 
+import exercise13.engine.CommandProcessor;
 import exercise13.engine.CommandReader;
 import exercise13.engine.Warehouse;
+import exercise13.product.ProductFactory;
+import exercise13.report.ReportGenerator;
 
 public class Main {
     public static void main(String[] args) {
-        Warehouse warehouse1 = new Warehouse();
-        CommandReader.run(warehouse1);
+        Warehouse warehouse = new Warehouse();
+        ProductFactory factory = new ProductFactory();
+        ReportGenerator reportGenerator = new ReportGenerator(warehouse);
+        CommandProcessor processor = new CommandProcessor(warehouse, factory, reportGenerator);
+        CommandReader reader = new CommandReader(processor);
+        reader.run();
 
         // TODO: PIPA ConsoleReader, InputReader, stb. kiszervezni ezt a kódot:
         // TODO: PIPA Try-with-resources legyen a br is...

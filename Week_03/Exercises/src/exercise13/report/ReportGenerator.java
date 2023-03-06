@@ -3,8 +3,14 @@ package exercise13.report;
 import exercise13.engine.Warehouse;
 
 public class ReportGenerator {
-    public static void reportGenerator(Warehouse warehouse1) {
-        warehouse1.reportProducts();
-        warehouse1.printUsableEntertainmentProducts();
+    private final Warehouse warehouse;
+
+    public ReportGenerator(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public void reportGenerator() {
+        warehouse.reportProducts();
+        warehouse.printUsableEntertainmentProducts();
     }
 }

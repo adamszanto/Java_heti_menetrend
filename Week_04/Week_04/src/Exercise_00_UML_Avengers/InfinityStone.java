@@ -1,8 +1,9 @@
 package Exercise_00_UML_Avengers;
 
-public class InfinityStone {
-    private String color;
-    private Integer power;
+
+public final class InfinityStone {
+    private final String color;
+    private final Integer power;
 
     private static final InfinityStone timeStone = new InfinityStone("Orange", 7);
     private static final InfinityStone soulStone = new InfinityStone("Green", 6);
@@ -14,6 +15,14 @@ public class InfinityStone {
     private InfinityStone(String color, int power) {
         this.color = color;
         this.power = power;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public Integer getPower() {
+        return power;
     }
 
     public static InfinityStone getTimeStone() {
