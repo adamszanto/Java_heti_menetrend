@@ -28,7 +28,6 @@ public class Main {
 //                .collect(Collectors.toSet())
 //                .forEach(number -> System.out.println(number));
 
-        /
 //
 //        Stream<Integer> numbers4 = Stream.of(52, 89, 16, 755, 3, 1, 0, -87, -526, -4, 9, 236);
 //        OptionalInt optionalInt = numbers4

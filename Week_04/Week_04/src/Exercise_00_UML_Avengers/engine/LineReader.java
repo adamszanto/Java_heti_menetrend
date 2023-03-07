@@ -8,12 +8,18 @@ import java.io.InputStreamReader;
 
 public class LineReader {
 
+    private final LineParser parser;
+
+    public LineReader(LineParser parser) {
+        this.parser = parser;
+    }
+
     public void read() {
         System.out.println("Hero creating has been started: ");
         boolean flag = true;
         try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             while(flag) {
-                LineParser.parse(br.readLine());
+                parser.parse(br.readLine());
             }
 
         } catch (IOException e) {
