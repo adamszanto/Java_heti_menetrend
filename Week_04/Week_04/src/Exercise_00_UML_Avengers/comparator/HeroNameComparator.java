@@ -1,6 +1,9 @@
-package Exercise_00_UML_Avengers.Comparator;
+package Exercise_00_UML_Avengers.comparator;
 
-import Exercise_00_UML_Avengers.Hero.Hero;
+// TODO: 3. Comparator írása: Azonos power esetén a név döntsön...
+
+
+import Exercise_00_UML_Avengers.hero.Hero;
 
 import java.util.Comparator;
 

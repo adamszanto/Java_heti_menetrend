@@ -1,6 +1,8 @@
-package Exercise_00_UML_Avengers.Hero;
+package Exercise_00_UML_Avengers.hero;
 
 import Exercise_00_UML_Avengers.InfinityStone;
+
+import java.util.Objects;
 
 public abstract class Hero {
     private final String name;
@@ -32,5 +34,25 @@ public abstract class Hero {
                 ", power=" + power +
                 ", stone=" + stone +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Hero hero = (Hero) o;
+
+        if (!Objects.equals(name, hero.name)) return false;
+        if (!Objects.equals(power, hero.power)) return false;
+        return Objects.equals(stone, hero.stone);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (power != null ? power.hashCode() : 0);
+        result = 31 * result + (stone != null ? stone.hashCode() : 0);
+        return result;
     }
 }

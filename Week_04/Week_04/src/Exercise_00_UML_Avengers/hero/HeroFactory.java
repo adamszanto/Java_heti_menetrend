@@ -1,8 +1,8 @@
-package Exercise_00_UML_Avengers.Hero;
+package Exercise_00_UML_Avengers.hero;
 
 public class HeroFactory {
 
-    public static Hero create(String name, int power, String infinityStone, boolean isFromEarth) {
+    public Hero create(String name, int power, String infinityStone, boolean isFromEarth) {
         if(isFromEarth) {
             System.out.println("New Earth Hero has been made!");
             return new BornOnTheEarth(name, power, infinityStone, new Passport());

@@ -1,10 +1,7 @@
 package Exercise_00StreamAPI_exercise;
 
 import javax.xml.namespace.QName;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,6 +27,7 @@ public class Main {
 //                .map(number -> String.valueOf(number).length())
 //                .collect(Collectors.toSet())
 //                .forEach(number -> System.out.println(number));
+
 //
 //        Stream<Integer> numbers4 = Stream.of(52, 89, 16, 755, 3, 1, 0, -87, -526, -4, 9, 236);
 //        OptionalInt optionalInt = numbers4
@@ -69,6 +67,8 @@ public class Main {
                 .sorted()
                 .forEach(name -> System.out.println(name));
 
+        // Lazy módon jönnek létre az elemek... "Lazy initializing" akkor jön létre, amikor használni kell. És nem akkor, amikor definiáljuk!
+
         // List the name of the smallest shop from shops having t or T in their names:
         System.out.println("Smallest shop from shops having t or T in their names: ");
         Optional<Shop> smallestShopOptional =
@@ -79,5 +79,32 @@ public class Main {
         if(smallestShopOptional.isPresent()) {
             System.out.println(smallestShopOptional.get().getName());
         }
+
+        // Maximum keresés példa:
+        List<Integer> numbers = List.of(3,10,12,15,77,53,-5,-3,13);
+        // Általános streamként dolgozzuk fel a számokat:
+
+        Optional<Integer> maxNum = numbers.stream() // Stream<Integer>
+                .max((n1, n2) -> n2 - n1);
+
+        OptionalInt maxNum2 = numbers.stream()
+                .mapToInt(n -> n)  // Stream<Integer> -ből lett IntStream
+                .max();
+
+        Stream<Integer> numbers3 = Stream.of(52, 89, 16, 755, 3, 1, 0, -87, -526, -4, 9, 236);
+        Stream<Integer> numbers4 = Stream.of(52, 89, 16, 755, 3, 1, 0, -87, -526, -4, 9, 236);
+            numbers3
+                .map(number -> String.valueOf(number).length())
+                .collect(Collectors.toSet())
+                .forEach(number -> System.out.println(number));
+
+            numbers4
+                .map(number -> String.valueOf(number).length())
+                .collect(Collectors.toSet())
+                    .stream()
+                .forEach(number -> System.out.println(number));
+
+            // forEach: StreamAPI-s vagy Collections lehet
+
     }
 }
