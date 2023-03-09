@@ -1,18 +1,24 @@
 package Exercise_00_LungAndEyes;
 
 public class Lungs extends Thread{
+    private Integer value;
+
+    public Lungs(Integer object) {
+        this.value = object;
+    }
+
     public void inhale() {
         System.out.println("Lung inhaling");
-        Main.calories -= 5;
+        value -= 5;
     }
 
     public void exhale() {
         System.out.println("Lung exhaling");
-        Main.calories -= 5;
+        value -= 5;
     }
 
     public void run() {
-        while(Main.calories > 0) {
+        while(value > 0) {
             try {
                 inhale();
                 Thread.sleep(3000);
