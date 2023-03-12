@@ -22,7 +22,7 @@ public class StringList {
     // Sleep esetén TimedWaiting van. Wait esetében waiting van (csak notify vagy nofityAll-al tudunk visszajönni Waitből). Synchronized esetében pedig blocked állapotban várakoznak a szálak.
     // synchronized blokk hátránya: UGYAN ABBAN a metódusban le kell zárni, amelyikben megnyitottuk... ha másik metódusban akarom lezárni a blokkot/elengedni az erőforrást... akkor más
     // implementáció szükséges a Lock interface részéről: reEntrantLock, reEntrantReadWriteLock
-    // Semaphor = tudjuk kontrollálni hogy adott szakaszra hány szál juthat be... vonatsínak is semaphorral vannak ellátva... a vonat csak akkor léphet be adott szakaszra, ha az üres.
+    // Semaphor = tudjuk kontrollálni hogy adott szakaszra hány szál juthat be... vonatsínek is semaphorral vannak ellátva... a vonat csak akkor léphet be adott szakaszra, ha az üres.
     // 0,1 jellegű bemehetsz, vagy nem!
     // Javaban megcsinálták hogy arra a szakaszra egyszerre bemehet 5 szál, stb. tehát maximális értéket megadhatunk neki.
     // TODO: Thread pools
@@ -30,6 +30,10 @@ public class StringList {
         synchronized (object){
             listOfStrings.add(s);
         }
+    }
+
+    public synchronized void addStringsynch(String s) {
+        
     }
 
     public void removeString(String s) {

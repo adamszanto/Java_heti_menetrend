@@ -29,7 +29,7 @@ public class Main {
     // StringBuilder nem szálbiztos. Ha szálbiztos megoldás kell, akkor StringBuffer a jó eszköz. Mind a kettő ugyan arra való, azonban a környezet dönt:
     // Egy szálú környezetben a StringBuilder a gyorsabb.
 
-    // Kérdés: szálbiztos-e ez a múködés? Pl. Ha beesik 100 thread ehhez a metódushoz:
+    // Kérdés: szálbiztos-e ez a működés? Pl. Ha beesik 100 thread ehhez a metódushoz:
     // Lokális a StringBuilder...
     public static void tryStringBuilder() {
         StringBuilder stringBuilder = new StringBuilder();
