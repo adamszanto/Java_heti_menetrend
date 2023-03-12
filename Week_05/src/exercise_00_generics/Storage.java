@@ -5,7 +5,7 @@ import java.util.Objects;
 
 // Saját generikus osztály létrehozása:
 // Diamond operátorba rakjuk a típusparamétereket
-public class Storage<Type extends Number> {
+public class Storage<Type extends Comparable<? super Type>> {
 
     private final Type t;
 

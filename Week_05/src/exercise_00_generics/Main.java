@@ -92,5 +92,22 @@ public class Main {
         System.out.println(intStorage);
         System.out.println(sStorage);
 
+        class AB implements Comparable<A> {
+
+            @Override
+            public int compareTo(A o) {
+                return 0;
+            }
+        }
+
+        class B extends A {
+
+        }
+
+
+        Storage<A> aStorage = new Storage<A>(new A());
+
     }
+
+
 }
