@@ -103,10 +103,6 @@ public class Main {
         class B extends A {
 
         }
-
-
-        Storage<A> aStorage = new Storage<A>(new A());
-
     }
 
 
