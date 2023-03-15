@@ -105,5 +105,31 @@ public class Main {
         }
     }
 
+    // Több különböző ArrayListet is paraméterül vehet, bármit is kapjon paraméterül, egy 5-ös intet akarunk belerakni.
+    // Ha általánosítva akarunk belerakni egy adott típusú elemet egy metódusba, akkor super kell valahogy így: Vagy az a típus, vagy az ősei (helyettesíthetés miatt)
+    public void addInt(List<? super Double> numList) {
+        numList.add(5.8);
+    }
+
+    // extends-el pedig bejárni tudnánk elemet: Valamilyen típusút és leszármazottjait.
+    public void printInt(List<? extends Number> numList) {
+        Number n = numList.get(0);
+    }
+
+
+    // Generikus metódusokra példa:
+    // Amikor nem akarunk egy egész osztályt generikussá tenni, nem akarunk 1 generikus tárolót, csak 1 metódust akarunk generikussá tenni...
+    public <T extends Number> T getElement(List<T> list) {
+        return null;
+    }
+
+    public <T> T getElement2(List<T> list) {
+        return null;
+    }
+
+    public <T, U, R> T getElement3(List<T> list) {
+        return null;
+    }
+
 
 }

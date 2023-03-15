@@ -25,6 +25,7 @@ public class Main {
         // 3. cancel() félbeszakítani a metódust
         // 4. isCancelled() megnézni hogy félbeszakítottuk-e
         // Future async hívást eredményez, nem várakoztat amíg vár, hanem engedi tovább a futást.
+        // CompletableFuture szoktunk használni inkább Future helyett...
         Integer result = f.get();
         System.out.println(result);
 
