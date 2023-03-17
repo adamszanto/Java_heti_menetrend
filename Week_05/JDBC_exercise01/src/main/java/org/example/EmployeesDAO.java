@@ -25,22 +25,20 @@ public class EmployeesDAO {
     """;
 
 
-    public double getAverageSalary()  {
-
+    public Double getAverageSalary()  {
         try(
                 Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD);
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(AVERAGE_SALARY);
         ) {
-            while(resultSet.next()) {
+            if(resultSet.next()) {
                 return resultSet.getDouble("avgsalary");
+            } else {
+                return null;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        // TODO: Ezt megoldani a return value jo legyen
-        return 0;
     }
 
     public List<Employee>  getEmployeesWOManager(){
