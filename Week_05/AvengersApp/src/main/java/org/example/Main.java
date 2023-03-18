@@ -6,11 +6,10 @@ import org.example.view.Window;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
         Text text = new Text();
-        Window windows = new Window();
-        Controller controller = new Controller(windows, text);
+        Window window = new Window();
+        Controller controller = new Controller(window, text);
         text.setPresenter(controller);
-        windows.setPresenter(controller);
+        window.setPresenter(controller);
     }
 }
