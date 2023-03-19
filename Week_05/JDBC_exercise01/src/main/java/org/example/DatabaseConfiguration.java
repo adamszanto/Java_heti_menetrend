@@ -7,6 +7,5 @@ public final class DatabaseConfiguration {
     public static final String PASSWORD = "test1990%%";
 
     private DatabaseConfiguration() {
-
     }
 }

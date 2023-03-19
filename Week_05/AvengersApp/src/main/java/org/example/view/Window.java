@@ -8,14 +8,15 @@ import java.awt.*;
 public class Window extends JFrame implements View {
 
     private Presenter presenter;
-
     private JTextField input;
     private JButton button;
     public Window() {
-        this.initConstructWindow();
-        this.setSize(200,200);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setVisible(true);
+        // utólag törlésre kerültek a this. kulcsszók a alábbiaknál:
+        initConstructWindow();
+        setSize(400,200);
+        setTitle("Avengers Manager v3.04");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
     }
 
     private void initConstructWindow() {
@@ -25,7 +26,8 @@ public class Window extends JFrame implements View {
         JPanel jPanel = new JPanel();
         jPanel.add(input);
         jPanel.add(button);
-        this.add(jPanel, BorderLayout.SOUTH);
+        this.add(jPanel, BorderLayout.CENTER);
+        // Újraszámoltatja a window méretét ha előtte pakoltunk bele dolgokat:
         this.pack();
     }
 
@@ -38,6 +40,4 @@ public class Window extends JFrame implements View {
     public void updateValue(String value) {
         input.setText(value);
     }
-
-
 }

@@ -6,7 +6,6 @@ public class Text implements Model{
     private String value = new String();
     private Presenter presenter;
 
-
     @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
