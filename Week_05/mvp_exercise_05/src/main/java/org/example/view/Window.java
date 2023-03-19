@@ -28,6 +28,7 @@ public class Window extends JFrame implements View {
         generateButton = new JButton("Generate");
         saveButton = new JButton("Save list");
         generateButton.addActionListener(e -> presenter.createHero());
+        saveButton.addActionListener(e -> presenter.saveHeroes());
         JPanel jPanel = new JPanel();
         JLabel jLabelName = new JLabel("Hero name");
         jPanel.add(jLabelName);

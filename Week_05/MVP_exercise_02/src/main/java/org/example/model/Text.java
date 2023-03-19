@@ -1,11 +1,10 @@
-package org.example.hero.model;
+package org.example.model;
 
-import org.example.hero.presenter.Presenter;
+import org.example.presenter.Presenter;
 
 public class Text implements Model {
     private Presenter presenter;
     private String value = new String();
-
 
     @Override
     public void setPresenter(Presenter presenter) {
@@ -13,7 +12,7 @@ public class Text implements Model {
     }
 
     @Override
-    public void updateValue(String value) {
+    public void updateModel(String value) {
         this.value = value;
         presenter.triggerValueUpdated();
     }

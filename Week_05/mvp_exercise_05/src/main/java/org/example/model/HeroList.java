@@ -3,7 +3,7 @@ package org.example.model;
 import java.util.ArrayList;
 
 public class HeroList {
-    private ArrayList<Hero> heroes;
+    private static ArrayList<Hero> heroes;
 
     public void add(Hero hero) {
         heroes.add(hero);

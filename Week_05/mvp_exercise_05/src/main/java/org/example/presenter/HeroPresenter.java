@@ -16,4 +16,9 @@ public class HeroPresenter implements Presenter {
     public void createHero() {
         model.generateHero(model.getName(), model.getPower());
     }
+
+    @Override
+    public void saveHeroes() {
+        HeroPresenter.heroes
+    }
 }
