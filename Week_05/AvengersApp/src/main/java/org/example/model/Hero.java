@@ -1,49 +1,47 @@
 package org.example.model;
 
-import org.example.presenter.Presenter;
+import java.util.Objects;
 
-import java.util.HashMap;
-import java.util.Map;
+public class Hero {
+    private final String name;
+    private final Integer power;
 
-public class Hero implements Model {
-    private Map<String, String> heroes;
-    private Presenter presenter;
-
-    public Hero() {
-        this.heroes = new HashMap<>();
+    public Hero(String name, Integer power) {
+        this.name = name;
+        this.power = power;
     }
 
-    public void add(String heroName, String heroPower) {
-
+    public String getName() {
+        return name;
     }
 
-    public Map<String, String> getHeroes() {
-        return heroes;
+    public Integer getPower() {
+        return power;
     }
 
-    public void setHeroes(Map<String, String> heroes) {
-        this.heroes = heroes;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Hero hero = (Hero) o;
+
+        if (!Objects.equals(name, hero.name)) return false;
+        return Objects.equals(power, hero.power);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (power != null ? power.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Hero{" +
-                "heroes=" + heroes +
+                "name='" + name + '\'' +
+                ", power=" + power +
                 '}';
-    }
-
-    @Override
-    public void setPresenter(Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
-    public void createHero(String name, String power) {
-        heroes.put(name, power);
-    }
-
-    @Override
-    public int getHeroesSize() {
-        return heroes.size();
     }
 }

@@ -2,9 +2,14 @@ package org.example.model;
 
 import org.example.presenter.Presenter;
 
-public interface Model {
-    public void setPresenter(Presenter presenter);
+import java.util.List;
 
-    public void createHero(String name, String power);
-    public int getHeroesSize();
+public interface Model {
+    void setPresenter(Presenter presenter);
+
+    void createHero(String name, Integer power);
+
+    List<Hero> getHeroes();
+
+
 }

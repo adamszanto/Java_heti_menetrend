@@ -1,7 +1,10 @@
 package org.example.presenter;
 
+import org.example.model.Hero;
 import org.example.model.Model;
 import org.example.view.View;
+
+import java.util.List;
 
 public class HeroController implements Presenter {
 
@@ -13,16 +16,14 @@ public class HeroController implements Presenter {
         this.view = view;
     }
 
-
-
-
     @Override
     public void createHero(String name, String power) {
-        model.createHero(name, power);
+        model.createHero(name, Integer.parseInt(power));
     }
 
     @Override
-    public int getHeroesSize() {
-        return model.getHeroesSize();
+    public void handleModelChanged() {
+        List<Hero> heroes = model.getHeroes();
+        view.updateView(heroes.toString());
     }
 }
