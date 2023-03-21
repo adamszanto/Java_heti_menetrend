@@ -2,8 +2,14 @@ package org.example.model;
 
 import org.example.presenter.Presenter;
 
+import java.util.List;
+
 public interface Model {
-    public void setPresenter(Presenter presenter);
-    public void updateModel(String value);
-    public String getValue();
+    void setPresenter(Presenter presenter);
+
+    void createHero(String name, Integer power);
+
+    List<Hero> getHeroes();
+
+
 }

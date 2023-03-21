@@ -4,30 +4,42 @@ import org.example.presenter.Presenter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
+
+// TODO: Integer.parseInt createHero()-hoz
+// Stringből más típust: parse... fordítva másból Stringbe: String.valueOf()
+// Avengers MVP struktúra: jegyzet
+
 
 public class Window extends JFrame implements View {
-
     private Presenter presenter;
-    private JTextField input;
-    private JButton button;
-    public Window() {
-        // utólag törlésre kerültek a this. kulcsszók a alábbiaknál:
-        initConstructWindow();
-        setSize(400,200);
-        setTitle("Avengers Manager v3.04");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-    }
+
+    private JTextField heroField;
+    private JTextField powerField;
+    private JButton generateButton;
+    private JButton saveButton;
+    private JTextArea heroView;
+
 
     private void initConstructWindow() {
-        input = new JTextField(20);
-        button = new JButton("Press OK");
-        button.addActionListener(e -> presenter.updateValue(input.getText()));
+        heroField = new JTextField(6);
+        powerField = new JTextField(3);
+        heroView = new JTextArea(5,30);
+        generateButton = new JButton("Generate");
+        saveButton = new JButton("Save list");
+        generateButton.addActionListener(e -> presenter.createHero(heroField.getText(), powerField.getText()));
+    //    saveButton.addActionListener(e -> presenter.saveHeroes());
         JPanel jPanel = new JPanel();
-        jPanel.add(input);
-        jPanel.add(button);
+        JLabel jLabelName = new JLabel("Hero name: ");
+        jPanel.add(jLabelName);
+        jPanel.add(heroField);
+        JLabel jLabelPower = new JLabel("Hero power (1-10): ");
+        jPanel.add(jLabelPower);
+        jPanel.add(powerField);
+        jPanel.add(generateButton);
+        jPanel.add(saveButton);
         this.add(jPanel, BorderLayout.CENTER);
-        // Újraszámoltatja a window méretét ha előtte pakoltunk bele dolgokat:
+        this.add(heroView, BorderLayout.SOUTH);
         this.pack();
     }
 
@@ -37,7 +49,16 @@ public class Window extends JFrame implements View {
     }
 
     @Override
-    public void updateValue(String value) {
-        input.setText(value);
+    public void updateView(String heroes) {
+        heroView.setText(heroes);
+    }
+
+    @Override
+    public void start() {
+        this.initConstructWindow();
+        this.setSize(800, 300);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setVisible(true);
+        this.setTitle("Hero generator");
     }
 }

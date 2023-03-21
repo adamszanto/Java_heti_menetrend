@@ -1,0 +1,76 @@
+JPanel = Arra jó, hogy rárakjuk a JTextField-et és a JButtont. Tudjuk rendezni a UI-t a segítségével.
+Az add() metódus segítségével tudunk rápakolni elemeket.
+
+Architektúra:
+MVC - Model, View, Controller
+MVP - Model, View, Presenter
+
+Rétegekbe szervezzük a különböző funkcionalitású osztályokat. Elkülönítjük a felelősségi köröket:
+- Kinézetet szabályozzák (View)
+- Művelet végzés, ő tud számolni stb. (Controller)
+- Maga az adat, az állapot (Model) - Ő tud változni, de nem végez magán műveletet
+
+Ez a 3 hogy kommunikál egymással?
+- MVC szeparáció
+- - 1. User piszkálja a UI-t, a View-ben
+- - 2. A View meghív bizonyos Controllerbeli metódusokat. Lekezeli a Controller az eseményt.
+- - 3. Emiatt változás léphet életbe, változik a Model réteg. Ez a Model réteg updateli a View-t.
+- - - A view ismeri a controllert
+- - - A controller ismeri: a viewt és a controllert
+- - - A model ismeri a view-t.
+- - - Csak interfészeken keresztül ismerik egymást, tehát minimális a kontakt. Minden réteg csak annyit tud a másikról, amennyi neki kell.
+
+- MVP
+- - Nincs köze a modelnek a view-hoz.
+- - 1. A View-ról bemegy a Controllerbe
+- - 2. A Controller updateli a Modelt
+- - 3. a Presenter szól a View-nak
+
+MVP példa, ki kiket ismer?
+- A View ismeri a Presentert
+- A Presenter ismeri a Viewt és a Modelt
+- A Model ismeri a Presentert
+
+MVP példa
+- 1. lépés kapcsolatok felépítése:
+- - View osztálya (= Window) ismeri a Presentert. Van egy "private Presenter presenter" osztályváltozója, valamint majd a "2. pont jövőben" implementálja a setPresentert.
+- - Presenter osztálya (= Controller) ismeri a Viewt és a Modelt: osztályváltozója van ezekből + konstruktor
+- - Model osztálya (= Text) ismeri a Presentert: Van egy "private Presenter presenter" osztályváltozója, valamint majd a "2. pont jövőben" implementálja a setPresentert".
+- -
+- 2. Main metódusban összekötjük őket, előtte:
+- - Nem tudunk mindent konstruktorban beállítani, az nem jó. A Modelt nem tudjuk létrehozni, mert kell hozzá a Controller. A Controllerhez kell a Model. A View nem tudjuk létrehozni, mert kell neki a Controller. Stb.
+- - Metódusokon keresztül fogjuk őket összekapcsolni. Az egyiket kitüntetjük, mondjuk a Controllert, konstruktor paraméterként megkapja a másik kettőt.
+- - - View-ba rakunk egy metódust: public void setPresenter(Presenter presenter)
+- - - Model-be rakunk egy metódust: public void setPresenter(Presenter presenter)
+
+- 3. Main-ben össze lehet őket kötni:
+- - Text text = new Text();
+- - Window window = new Window();
+- - Controller controller = new Controller(window, text);
+- - text.setPresenter(controller);
+- - window.setPresenter(controller);
+
+- 4. A Window osztályban az input.setText() helyett kell meghívni a presenter updateValue() metódusát (amit megírunk most...), bele kell tenni a
+- - 4.1 Presenter interface-be:
+- - - - - public void updateValue (String value);
+- - - - Ezt majd a Presenter megvalósított osztályában le kell kezelni (Controller osztály):
+- - - - Controller majd updateli a Modelt.
+- - 4.2 Model interface-ben:
+- - - - - public void updateModel(String value);
+- - - - - public String getValue();
+- - 4.3 Controller osztályban folytatjuk a 4.1-et:
+- - - - - public void updateValue(String value) { model.updateModel(value + " rewritten.")};
+- - 4.4 Bemegyünk a Model osztályába (Text osztály) ahol implementáljuk a metódust:
+- - - - - public void updateModel(String value) {this.value = value}
+- - 4.5 Vissza kell szólni a Presenternek, hogy oké, megtörtént az update:
+- - - - Presenter interface-ben új metódust aminek a típusa UpdatedValueCallBack
+- - - - - public void triggerValueUpdated();
+- - 4.6 Model osztályában (Text) szólunk a Presenternek miután megtörtént a változtatás:
+- - - - Kiegészítjük a Model osztályát (Text)-ben lévő updateModel(String value) metódust:
+- - - - - public void updateModel(String value) { this.value = value; presenter.triggerValueUpdated(); }
+- - 4.7 Átmegyünk a Presenterbe: Ő pedig szól a View-nak. Kell a View interface-ben egy metódust definiálni:
+- - - - - public void updateValue(String value)
+- - - - Ezt meghívhatjuk a Controllerben, a triggerValueUpdated()-ben:
+- - - - - public void triggerValueUpdated() {view.updateValue(model.getValue());}
+- - 4.8 Átmegyünk a View-ra: A Window osztályból hiányzik 1 metódus:
+- - - - public void updateValue(String value) { input.setText(value); }
