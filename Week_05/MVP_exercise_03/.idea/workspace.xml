@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a768d01f-5749-4ec1-9765-847755b24d4e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../AvengersApp/src/main/java/org/example/model/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AvengersApp/src/main/java/org/example/model/HeroCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AvengersApp/src/main/java/org/example/model/InfinityStone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/hero/model/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/hero/model/Model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/hero/model/Text.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/hero/presenter/HeroPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/hero/presenter/Presenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/hero/view/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/src/main/java/org/example/hero/view/Window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_exercise_02/target/classes/org/example/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Hero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/HeroGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/model/HeroModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/presenter/HeroPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/HeroView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/view/Window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/src/main/java/org/example/controller/CalculatorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/src/main/java/org/example/model/CalculatorModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/src/main/java/org/example/view/CalculatorView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/target/classes/org/example/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/target/classes/org/example/controller/CalculatorController$CalculateListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/target/classes/org/example/controller/CalculatorController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/target/classes/org/example/model/CalculatorModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MVP_practice/target/classes/org/example/view/CalculatorView.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NEeSfflLkjnLAA6YAZiwT6I2rU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.example.presenter" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a768d01f-5749-4ec1-9765-847755b24d4e" name="Changes" comment="" />
+      <created>1679233670981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679233670981</updated>
+      <workItem from="1679233672299" duration="369000" />
+      <workItem from="1679234105827" duration="1541000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
