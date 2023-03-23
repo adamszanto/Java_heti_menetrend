@@ -16,8 +16,6 @@ public class HeroStore implements Model {
 
     }
 
-
-
     @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
