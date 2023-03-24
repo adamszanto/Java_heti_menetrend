@@ -9,8 +9,6 @@ import java.util.Map;
 // TODO: Integer.parseInt createHero()-hoz
 // Stringből más típust: parse... fordítva másból Stringbe: String.valueOf()
 // Avengers MVP struktúra: jegyzet
-
-
 public class Window extends JFrame implements View {
     private Presenter presenter;
 

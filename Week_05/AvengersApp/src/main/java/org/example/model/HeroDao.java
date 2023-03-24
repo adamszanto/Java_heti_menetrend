@@ -25,9 +25,7 @@ public class HeroDao implements Model{
     // TODO: Heroes tábla (name, power) oszlop
     // TODO: Nincs primary key most, JDBC_nél nincs megkövetelve. JPA-nál igen.
     // Getconnection, prepared statement kell még. Fontos: Nem lekérő lekérdezés.
-    // Hanem módosító lekérdezés.
-    // Statement
-    // TODO: executeUpdate() kell minden olyan esetben, amikor módosításunk van. Such as insert, update, delete.
+    // TODO: executeUpdate() kell minden olyan esetben, amikor módosításunk van. Mint INSERT, UPDATE, DELETE.
     // TODO: Ha preparedStatement-en keresztül módosítani akarunk,akkor executeUpdate keresztül kell.
     // Ha selected van ami visszaad eredmény az simán execute Query. Ami resultSet-et ad vissza.
     // Az executeUpdate pedig csak egy számot ad vissza hogy hány rekord lett módosítva.
