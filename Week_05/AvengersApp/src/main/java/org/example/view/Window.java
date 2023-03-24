@@ -20,7 +20,6 @@ public class Window extends JFrame implements View {
     private JButton saveButton;
     private JTextArea heroView;
 
-
     private void initConstructWindow() {
         heroField = new JTextField(6);
         powerField = new JTextField(3);

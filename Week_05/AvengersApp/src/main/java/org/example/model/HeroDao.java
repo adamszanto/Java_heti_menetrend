@@ -7,7 +7,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class HeroDao implements Model{
+    private static final String SQLCREATE = "INSERT INTO heroes(name, power) VALUES(?, ?)";
+    private static final String SQLGET = "SELECT * FROM heroes.heroes";
     private Presenter presenter;
     private static final String url = null;
     private static final String username = null;
@@ -32,10 +35,12 @@ public class HeroDao implements Model{
     @Override
     public void createHero(String name, Integer power) {
         // PreparedStatement dinamikus értékekkel:
-        String sql = "INSERT INTO heroes(name, power) VALUES(?, ?)";
 
-        try (Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD)) {
-            PreparedStatement preparedStatement = createPrepareStatementForHeroCreating(connection, name, power.toString(), sql);
+        try (
+                Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD);
+                PreparedStatement preparedStatement = createPrepareStatementForHeroCreating(connection, name, power.toString(), SQLCREATE);
+        ) {
+
             int result = preparedStatement.executeUpdate();
             System.out.println(result + " row(s) affected. Success!");
             presenter.handleModelChanged();
@@ -52,27 +57,45 @@ public class HeroDao implements Model{
         return preparedStatement;
     }
 
-
+//    @Override
+//    public List<Hero> getHeroes() {
+//        ArrayList<Hero> list = new ArrayList<>();
+//
+//        try(
+//        Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD);
+//        PreparedStatement preparedStatement = connection.prepareStatement(SQLGET);
+//        ) {
+//
+//
+//            ResultSet rs = preparedStatement.executeQuery();
+//
+//            while(rs.next()) {
+//                String name = rs.getString(1);
+//                String power = rs.getString(2);
+//                list.add(new Hero(name, Integer.parseInt(power)));
+//            }
+//            return list;
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @Override
     public List<Hero> getHeroes() {
         ArrayList<Hero> list = new ArrayList<>();
-        String sql = "SELECT * FROM heroes.heroes";
-
-        try(Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD)) {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
+        try(
+                Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD);
+                Statement statement = connection.createStatement();
+                ResultSet rs = statement.executeQuery(SQLGET);
+                ){
             while(rs.next()) {
-                String name = rs.getString(1);
-                String power = rs.getString(2);
-                list.add(new Hero(name, Integer.parseInt(power)));
+                list.add(new Hero(rs.getString("name"), rs.getInt("power")));
             }
             return list;
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 }
