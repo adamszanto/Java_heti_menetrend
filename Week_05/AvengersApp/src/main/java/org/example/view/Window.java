@@ -6,9 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
 
-// TODO: Integer.parseInt createHero()-hoz
-// Stringből más típust: parse... fordítva másból Stringbe: String.valueOf()
-// Avengers MVP struktúra: jegyzet
 public class Window extends JFrame implements View {
     private Presenter presenter;
 
@@ -25,7 +22,7 @@ public class Window extends JFrame implements View {
         generateButton = new JButton("Generate");
         saveButton = new JButton("Save list");
         generateButton.addActionListener(e -> presenter.createHero(heroField.getText(), powerField.getText()));
-    //    saveButton.addActionListener(e -> presenter.saveHeroes());
+        saveButton.addActionListener(e -> presenter.saveHeroes());
         JPanel jPanel = new JPanel();
         JLabel jLabelName = new JLabel("Hero name: ");
         jPanel.add(jLabelName);

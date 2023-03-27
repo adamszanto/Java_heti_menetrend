@@ -7,7 +7,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class HeroDao implements Model{
     private static final String SQLCREATE = "INSERT INTO heroes(name, power) VALUES(?, ?)";
     private static final String SQLGET = "SELECT * FROM heroes.heroes";
