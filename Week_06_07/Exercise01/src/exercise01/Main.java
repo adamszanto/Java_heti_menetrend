@@ -1,5 +1,9 @@
 package exercise01;
 
+import java.lang.reflect.Array;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
         char[] word = {'b','e','r','k','e','n','y','e',' ',' '};
@@ -10,6 +14,7 @@ public class Main {
         System.out.println(szantoString.replace('e','a'));
         System.out.println(szantoString.trim().concat('x'));
         szantoString.trim().print();
+
 
     }
 }
