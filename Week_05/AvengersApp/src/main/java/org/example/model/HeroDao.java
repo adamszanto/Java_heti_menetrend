@@ -3,6 +3,8 @@ package org.example.model;
 import org.example.DatabaseConfiguration;
 import org.example.presenter.Presenter;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,19 @@ public class HeroDao implements Model{
         }
     }
 
+    @Override
+    public void exportHero() throws IOException {
+        List<Hero> heroList = getHeroes();
+
+        FileWriter fileWriter = new FileWriter("HeroDaoExport.csv");
+        fileWriter.write("name, power\n");
+
+        for(Hero hero : heroList) {
+            fileWriter.write(hero.getName() + ", " + hero.getPower() + "\n");
+        }
+        fileWriter.close();
+    }
+
     private PreparedStatement createPrepareStatementForHeroCreating(Connection connection, String name, String power, String sql) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,  name );
@@ -80,7 +95,7 @@ public class HeroDao implements Model{
 
     @Override
     public List<Hero> getHeroes() {
-        ArrayList<Hero> list = new ArrayList<>();
+        List<Hero> list = new ArrayList<>();
         try(
                 Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD);
                 Statement statement = connection.createStatement();

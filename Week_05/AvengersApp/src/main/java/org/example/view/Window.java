@@ -55,4 +55,9 @@ public class Window extends JFrame implements View {
         this.setVisible(true);
         this.setTitle("Hero generator");
     }
+
+    @Override
+    public void notifyExport() {
+        heroView.setText("Export successful!");
+    }
 }

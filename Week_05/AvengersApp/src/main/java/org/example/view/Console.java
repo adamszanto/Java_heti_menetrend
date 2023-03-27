@@ -23,6 +23,11 @@ public class Console implements View{
     }
 
     @Override
+    public void notifyExport() {
+        System.out.println("Export succesful.");
+    }
+
+    @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }
