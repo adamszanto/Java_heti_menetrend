@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Week_05/AvengersApp/AvengersApp.iml" filepath="$PROJECT_DIR$/Week_05/AvengersApp/AvengersApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week_05/JDBC_exercise01/JDBC_exercise01.iml" filepath="$PROJECT_DIR$/Week_05/JDBC_exercise01/JDBC_exercise01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java_heti_menetrend.iml" filepath="$PROJECT_DIR$/.idea/Java_heti_menetrend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week_05/MVP_practice/MVP_practice.iml" filepath="$PROJECT_DIR$/Week_05/MVP_practice/MVP_practice.iml" />
+    </modules>
+  </component>
+</project>
