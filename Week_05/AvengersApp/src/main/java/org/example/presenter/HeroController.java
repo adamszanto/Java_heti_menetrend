@@ -32,7 +32,6 @@ public class HeroController implements Presenter {
         }
     }
 
-
     @Override
     public void handleModelChanged() {
         List<Hero> heroes = model.getHeroes();

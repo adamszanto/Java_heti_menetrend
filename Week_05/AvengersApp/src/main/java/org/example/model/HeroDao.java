@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 public class HeroDao implements Model{
     private static final String SQLCREATE = "INSERT INTO heroes(name, power) VALUES(?, ?)";
     private static final String SQLGET = "SELECT * FROM heroes.heroes";
@@ -16,7 +15,6 @@ public class HeroDao implements Model{
     private static final String url = null;
     private static final String username = null;
     private static final String password =  null;
-
     @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
@@ -68,30 +66,6 @@ public class HeroDao implements Model{
 
         return preparedStatement;
     }
-
-//    @Override
-//    public List<Hero> getHeroes() {
-//        ArrayList<Hero> list = new ArrayList<>();
-//
-//        try(
-//        Connection connection = DriverManager.getConnection(DatabaseConfiguration.URL, DatabaseConfiguration.USERNAME, DatabaseConfiguration.PASSWORD);
-//        PreparedStatement preparedStatement = connection.prepareStatement(SQLGET);
-//        ) {
-//
-//
-//            ResultSet rs = preparedStatement.executeQuery();
-//
-//            while(rs.next()) {
-//                String name = rs.getString(1);
-//                String power = rs.getString(2);
-//                list.add(new Hero(name, Integer.parseInt(power)));
-//            }
-//            return list;
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
     @Override
     public List<Hero> getHeroes() {

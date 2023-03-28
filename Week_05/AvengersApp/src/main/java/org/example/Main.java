@@ -13,10 +13,10 @@ import org.example.view.Window;
 // TODO: Ship, Fleet nem kell, a report úgy alakítsam át hogy ne legyen köze se shiphez, se fleethez. Csak a Heroval legyen kapcsolatos
 public class Main {
     public static void main(String[] args) {
-    //    Model hero = new HeroDao();
-        Model hero = new HeroStore();
+        Model hero = new HeroDao();
+    //    Model hero = new HeroStore();
         View window = new Window();
-       // Console window = new Console();
+    //    Console window = new Console();
         Presenter controller = new HeroController(hero, window);
         hero.setPresenter(controller);
         window.setPresenter(controller);
