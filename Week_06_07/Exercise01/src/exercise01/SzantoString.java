@@ -79,8 +79,8 @@ public class SzantoString {
 
     @Override
     public String toString() {
-        return "SzantoString{" +
-                "word=" + Arrays.toString(word) +
+        return "SzantoStringr{" +
+            "word=" + Arrays.toString(word) +
                 '}';
     }
 }
