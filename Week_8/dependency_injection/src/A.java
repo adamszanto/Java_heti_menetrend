@@ -1,5 +1,4 @@
 public class A {
-    // B-től függ az osztály, az A-nak van egy függőse
     private B value = new B();
 }
 

@@ -9,5 +9,4 @@ public class ForbiddenWordsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ForbiddenWordsApplication.class, args);
 	}
-
 }
