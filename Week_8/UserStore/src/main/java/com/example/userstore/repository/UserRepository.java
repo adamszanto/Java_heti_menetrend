@@ -30,8 +30,23 @@ public class UserRepository {
                 .orElse(null);
     }
 
-    public User save(User user) {
+//    public User save(User user) {
+//        list.add(new User(300, "Hello", "hello@freemail.hu", "Bello"));
+//        return user;
+//    }
+
+    public User save() {
         list.add(new User(300, "Hello", "hello@freemail.hu", "Bello"));
-        return user;
+        return list.get(list.size()-1);
     }
+
+
+
+    public int count() {
+        return list.size();
+    }
+
+
+
+
 }

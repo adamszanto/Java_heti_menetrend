@@ -3,10 +3,10 @@ package com.example.userstore.model;
 import java.util.Objects;
 
 public class User {
-    private final int id;
-    private final String name;
-    private final String email;
-    private final String nickName;
+    private int id;
+    private String name;
+    private String email;
+    private String nickName;
 
     public User(int id, String name, String email, String nickName) {
         this.id = id;
@@ -29,6 +29,22 @@ public class User {
 
     public String getNickName() {
         return nickName;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     @Override

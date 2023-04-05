@@ -11,7 +11,11 @@ import java.util.List;
 @RequestMapping("users")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     public void getAllUsers() {
@@ -25,9 +29,24 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PostMapping
-    public User createUser(User user) {
-        System.out.println("User has been created.");
-        return userService.createUser(user);
+    @GetMapping(params = "action=count")
+    public int countUsers() {
+        System.out.println("Count: " + userService.countUsers());
+        return userService.countUsers();
     }
+
+//    @PostMapping
+//    public User createUser(User user) {
+//        System.out.println("User has been created.");
+//        return userService.createUser(user);
+//    }
+
+    @PostMapping
+    public User createUser() {
+        System.out.println("User has been created.");
+        return userService.createUser();
+    }
+
+
+
 }
