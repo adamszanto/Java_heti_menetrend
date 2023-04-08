@@ -47,10 +47,22 @@ public class StudentService {
         return studentMapper.convertEntityToModel(studentEntity);
     }
 
+//    public Student getStudentById(Integer id) {
+//        Optional<Map.Entry<Integer, StudentEntity>> optionalStudentEntity = studentRepository.getById(id);
+//        if (optionalStudentEntity.isPresent()) {
+//            StudentEntity studentEntity = (StudentEntity optionalStudentEntity.get();
+//            return studentMapper.convertEntityToModel(studentEntity);
+//        } else {
+//            return null;
+//        }
+//    }
+
     public Student getStudentById(Integer id) {
         Optional<Map.Entry<Integer, StudentEntity>> optionalStudentEntity = studentRepository.getById(id);
-        if (optionalStudentEntity.isPresent()) {
-            StudentEntity studentEntity = (StudentEntity) optionalStudentEntity.get();
+        Optional<StudentEntity> optionalStudent = optionalStudentEntity.map(Map.Entry::getValue);
+
+        if (optionalStudent.isPresent()) {
+            StudentEntity studentEntity = optionalStudent.get();
             return studentMapper.convertEntityToModel(studentEntity);
         } else {
             return null;
