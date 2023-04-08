@@ -1,6 +1,7 @@
 package com.example.studentapi.repository;
 
 import com.example.studentapi.repository.entity.StudentEntity;
+import com.example.studentapi.service.model.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -24,13 +25,22 @@ public class StudentRepository {
 
     public StudentEntity save() {
         list.put(14, new StudentEntity("Habak", "ukk@free", 22));
-        return list.get(list.size()-1);
+    //    return list.get(list.size());
+        return getById(14);
 
     }
 
-    public Optional<Map.Entry<Integer, StudentEntity>> getById(Integer id) {
+//    public Optional<Map.Entry<Integer, StudentEntity>> getById(Integer id) {
+//        return list.entrySet().stream()
+//                .filter(student -> student.getKey() == id)
+//                .findFirst();
+//    }
+
+    public StudentEntity getById(Integer id) {
         return list.entrySet().stream()
-                .filter(student -> student.getKey() == id)
-                .findFirst();
+                .filter(entry -> entry.getKey().equals(id))
+                .map(Map.Entry::getValue)
+                .findAny()
+                .orElse(null);
     }
 }

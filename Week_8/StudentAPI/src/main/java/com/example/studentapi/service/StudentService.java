@@ -25,9 +25,6 @@ public class StudentService {
         this.studentMapper = studentMapper;
     }
 
-    public StudentService() {
-    }
-
     public Map<Integer, Student> getAllStudents() {
         Map<Integer, StudentEntity> studentEntities = studentRepository.getAllStudends();
 
@@ -47,25 +44,9 @@ public class StudentService {
         return studentMapper.convertEntityToModel(studentEntity);
     }
 
-//    public Student getStudentById(Integer id) {
-//        Optional<Map.Entry<Integer, StudentEntity>> optionalStudentEntity = studentRepository.getById(id);
-//        if (optionalStudentEntity.isPresent()) {
-//            StudentEntity studentEntity = (StudentEntity optionalStudentEntity.get();
-//            return studentMapper.convertEntityToModel(studentEntity);
-//        } else {
-//            return null;
-//        }
-//    }
-
-
-    // új metódus:
-
     public Student getStudentById(Integer id) {
-        Optional<Map.Entry<Integer, StudentEntity>> optionalStudentEntity = studentRepository.getById(id);
-        Optional<StudentEntity> optionalStudent = optionalStudentEntity.map(Map.Entry::getValue);
-
-        if (optionalStudent.isPresent()) {
-            StudentEntity studentEntity = optionalStudent.get();
+        StudentEntity studentEntity = studentRepository.getById(id);
+        if(studentEntity != null) {
             return studentMapper.convertEntityToModel(studentEntity);
         } else {
             return null;
