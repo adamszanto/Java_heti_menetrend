@@ -57,6 +57,9 @@ public class StudentService {
 //        }
 //    }
 
+
+    // új metódus:
+
     public Student getStudentById(Integer id) {
         Optional<Map.Entry<Integer, StudentEntity>> optionalStudentEntity = studentRepository.getById(id);
         Optional<StudentEntity> optionalStudent = optionalStudentEntity.map(Map.Entry::getValue);
