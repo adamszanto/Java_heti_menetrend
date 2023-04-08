@@ -58,5 +58,4 @@ public class StudentController {
         Student student = studentService.createStudent();
         return studentMapper.convertModelToDto(student);
     }
-
 }

@@ -12,10 +12,10 @@ public class StudentRepository {
     private Map<Integer, StudentEntity> list = new HashMap<>();
 
     public StudentRepository() {
-        list.put(10, new StudentEntity("Lazlo", "hello@freemail.hu", 13));
-        list.put(11, new StudentEntity("Lazlo", "hello@freemail.hu", 15));
-        list.put(12, new StudentEntity("Lazlo", "hello@freemail.hu", 16));
-        list.put(13, new StudentEntity("Lazlo", "hello@freemail.hu", 20));
+        list.put(10, new StudentEntity("Lazlo A", "hello@freemail.hu", 13));
+        list.put(11, new StudentEntity("Lazlo H", "hello1@freemail.hu", 15));
+        list.put(12, new StudentEntity("Lazlo C", "hello2@freemail.hu", 16));
+        list.put(13, new StudentEntity("Lazlo K", "hello3@freemail.hu", 20));
     }
 
     public Map<Integer, StudentEntity> getAllStudends() {
