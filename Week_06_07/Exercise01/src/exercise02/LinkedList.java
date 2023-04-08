@@ -91,5 +91,4 @@ public class LinkedList<T extends Number> {
         }
         return -1;
     }
-
 }
