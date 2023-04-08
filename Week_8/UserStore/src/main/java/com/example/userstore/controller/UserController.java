@@ -1,37 +1,57 @@
 package com.example.userstore.controller;
 
-import com.example.userstore.model.User;
+import com.example.userstore.controller.dto.UserDto;
+import com.example.userstore.mapper.UserMapper;
 import com.example.userstore.service.UserService;
+import com.example.userstore.service.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("users")
 public class UserController {
-    @Autowired
-    private final UserService userService;
 
-    public UserController(UserService userService) {
+    // Logolás know-how:
+
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    // Mindig az slf4j
+    // TODO: Mi az a logging, mi a haszna...?
+    // TODO prio: Log levelek/szintek: Trace, Debug, Info, Warning, Error
+
+    private final UserService userService;
+    private final UserMapper mapper;
+    private final Integer numberOfKiskutya;
+    @Autowired
+    public UserController(UserService userService, UserMapper mapper, @Value("${kiskutya.kismacska}") Integer numberOfKiskutya) {
         this.userService = userService;
+        this.mapper = mapper;
+        this.numberOfKiskutya = numberOfKiskutya;
+        logger.info("Number of kiskutya: {}", numberOfKiskutya);
     }
 
     @GetMapping
     public void getAllUsers() {
-        System.out.println("All users have been got.");
+        logger.info("Got all users");
         userService.getAllUsers();
     }
 
     @GetMapping("{id}")
-    public User getUserById(@PathVariable(value = "id") int id) {
-        System.out.println(id + " has been requested.");
-        return userService.getUserById(id);
+    public UserDto getUserById(@PathVariable(value = "id") int id) {
+        logger.info("Got user id");
+        User user = userService.getUserById(id);
+        return mapper.convertModelToDto(user);
+
     }
 
+    // TODO: Kiíratni majd az actiont...
+    // TODO: sout helyett logolás...
     @GetMapping(params = "action=count")
     public int countUsers() {
-        System.out.println("Count: " + userService.countUsers());
+        logger.info("Counted: {}", userService.countUsers());
         return userService.countUsers();
     }
 
@@ -42,11 +62,9 @@ public class UserController {
 //    }
 
     @PostMapping
-    public User createUser() {
-        System.out.println("User has been created.");
-        return userService.createUser();
+    public UserDto createUser() {
+        logger.info("Got all users");
+        User user = userService.createUser();
+        return mapper.convertModelToDto(user);
     }
-
-
-
 }
