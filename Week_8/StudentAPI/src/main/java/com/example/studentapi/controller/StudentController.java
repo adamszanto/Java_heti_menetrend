@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@EnableScheduling
 @RestController
 @RequestMapping("student")
 public class StudentController {
