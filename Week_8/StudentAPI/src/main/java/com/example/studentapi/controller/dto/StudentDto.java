@@ -8,7 +8,6 @@ public class StudentDto {
     private Student student;
 
     public StudentDto() {
-
     }
 
     public Student getStudent() {

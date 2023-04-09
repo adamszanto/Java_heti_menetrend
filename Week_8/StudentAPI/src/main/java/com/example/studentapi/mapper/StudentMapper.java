@@ -10,6 +10,7 @@ public class StudentMapper {
     public StudentEntity convertModelToEntity(Student student) {
         StudentEntity studentEntity = new StudentEntity();
 
+        studentEntity.setId(student.getId());
         studentEntity.setName(student.getName());
         studentEntity.setEmail(student.getEmail());
         studentEntity.setLockerNumber(student.getLockerNumber());
@@ -20,9 +21,10 @@ public class StudentMapper {
     public Student convertEntityToModel(StudentEntity studentEntity) {
         Student student = new Student();
 
+        student.setId(studentEntity.getId());
         student.setName(studentEntity.getName());
         student.setEmail(studentEntity.getEmail());
-        student.setLockerNumber(student.getLockerNumber());
+        student.setLockerNumber(studentEntity.getLockerNumber());
 
         return student;
     }
@@ -33,5 +35,4 @@ public class StudentMapper {
 
         return studentDto;
     }
-
 }

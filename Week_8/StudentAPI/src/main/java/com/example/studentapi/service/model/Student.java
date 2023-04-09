@@ -3,17 +3,27 @@ package com.example.studentapi.service.model;
 import java.util.Objects;
 
 public class Student {
+    private Integer id;
     private String name;
     private String email;
     private Integer lockerNumber;
 
-    public Student(String name, String email, Integer lockerNumber) {
+    public Student(Integer id, String name, String email, Integer lockerNumber) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.lockerNumber = lockerNumber;
     }
 
     public Student() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
