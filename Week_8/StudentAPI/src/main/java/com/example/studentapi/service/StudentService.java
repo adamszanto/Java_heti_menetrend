@@ -9,8 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
-import java.util.Optional;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,18 +24,14 @@ public class StudentService {
         this.studentMapper = studentMapper;
     }
 
-    public Map<Integer, Student> getAllStudents() {
-        Map<Integer, StudentEntity> studentEntities = studentRepository.getAllStudends();
-
-        return studentEntities.entrySet().stream()
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        entry -> studentMapper.convertEntityToModel(entry.getValue())
-                ));
+    public List<Student> selectAllStudents() {
+        return studentRepository.findAllStudents().stream()
+                .map(studentEntity -> studentMapper.convertEntityToModel(studentEntity))
+                .collect(Collectors.toList());
     }
 
-    public Integer getNumber() {
-        return getAllStudents().size();
+    public Integer selectNumber() {
+        return selectAllStudents().size();
     }
 
     public Student createStudent() {
@@ -44,12 +39,17 @@ public class StudentService {
         return studentMapper.convertEntityToModel(studentEntity);
     }
 
-    public Student getStudentById(Integer id) {
-        StudentEntity studentEntity = studentRepository.getById(id);
-        if(studentEntity != null) {
-            return studentMapper.convertEntityToModel(studentEntity);
-        } else {
-            return null;
-        }
+//    public Student getStudentById(Integer id) {
+//        StudentEntity studentEntity = studentRepository.getById(id);
+//        if(studentEntity != null) {
+//            return studentMapper.convertEntityToModel(studentEntity);
+//        } else {
+//            return null;
+//        }
+//    }
+
+    public Student selectStudentById(Integer id) {
+        StudentEntity studentEntity = studentRepository.findById(id);
+        return studentMapper.convertEntityToModel(studentEntity);
     }
 }

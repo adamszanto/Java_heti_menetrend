@@ -7,18 +7,17 @@ import com.example.studentapi.service.model.Student;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.util.List;
 
 @RestController
 @RequestMapping("student")
 public class StudentController {
 
     private final Logger logger = LoggerFactory.getLogger(StudentController.class);
-    private StudentService studentService;
-    private StudentMapper studentMapper;
+    private final StudentService studentService;
+    private final StudentMapper studentMapper;
 
     @Autowired
     public StudentController(StudentService studentService, StudentMapper studentMapper) {
@@ -26,34 +25,31 @@ public class StudentController {
         this.studentMapper = studentMapper;
     }
 
-    public StudentController() {
-    }
-
     @GetMapping
     public void getStudent() {
-        logger.info("Got all students");
+        logger.info("Custom log: Got all students");
     }
 
     @GetMapping("all")
-    public Map<Integer, Student> getAll() {
-        return studentService.getAllStudents();
+    public List<Student> getAll() {
+        return studentService.selectAllStudents();
     }
 
     @GetMapping("{id}")
     public StudentDto getStudentById(@PathVariable(value = "id") Integer id) {
-        logger.info("Got user id: {}", id);
-        Student student = studentService.getStudentById(id);
+        logger.info("Custom log: Got user id: {}", id);
+        Student student = studentService.selectStudentById(id);
         return studentMapper.convertModelToDto(student);
     }
 
     @GetMapping("number")
     public Integer getNumber() {
-        return studentService.getNumber();
+        return studentService.selectNumber();
     }
 
     @PostMapping
     public StudentDto createStudent() {
-        logger.info("New student has been created");
+        logger.info("Custom log: New student has been created");
         Student student = studentService.createStudent();
         return studentMapper.convertModelToDto(student);
     }

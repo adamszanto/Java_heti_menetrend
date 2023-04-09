@@ -3,11 +3,13 @@ package com.example.studentapi.repository.entity;
 import java.util.Objects;
 
 public class StudentEntity {
+    private Integer id;
     private String name;
     private String email;
     private Integer lockerNumber;
 
-    public StudentEntity(String name, String email, Integer lockerNumber) {
+    public StudentEntity(Integer id, String name, String email, Integer lockerNumber) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.lockerNumber = lockerNumber;
@@ -18,6 +20,14 @@ public class StudentEntity {
 
     public String getName() {
         return name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setName(String name) {
