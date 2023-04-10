@@ -6,13 +6,13 @@ public class Student {
     private Integer id;
     private String name;
     private String email;
-    private Integer lockerNumber;
+    private Integer locker;
 
-    public Student(Integer id, String name, String email, Integer lockerNumber) {
+    public Student(Integer id, String name, String email, Integer locker) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.lockerNumber = lockerNumber;
+        this.locker = locker;
     }
 
     public Student() {
@@ -42,12 +42,12 @@ public class Student {
         this.email = email;
     }
 
-    public Integer getLockerNumber() {
-        return lockerNumber;
+    public Integer getLocker() {
+        return locker;
     }
 
-    public void setLockerNumber(Integer lockerNumber) {
-        this.lockerNumber = lockerNumber;
+    public void setLocker(Integer locker) {
+        this.locker = locker;
     }
 
     @Override
@@ -59,14 +59,14 @@ public class Student {
 
         if (!Objects.equals(name, student.name)) return false;
         if (!Objects.equals(email, student.email)) return false;
-        return Objects.equals(lockerNumber, student.lockerNumber);
+        return Objects.equals(locker, student.locker);
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (lockerNumber != null ? lockerNumber.hashCode() : 0);
+        result = 31 * result + (locker != null ? locker.hashCode() : 0);
         return result;
     }
 
@@ -75,7 +75,7 @@ public class Student {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", lockerNumber=" + lockerNumber +
+                ", lockerNumber=" + locker +
                 '}';
     }
 }

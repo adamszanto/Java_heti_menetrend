@@ -13,7 +13,7 @@ public class StudentMapper {
         studentEntity.setId(student.getId());
         studentEntity.setName(student.getName());
         studentEntity.setEmail(student.getEmail());
-        studentEntity.setLockerNumber(student.getLockerNumber());
+        studentEntity.setLocker(student.getLocker());
 
         return studentEntity;
     }
@@ -24,7 +24,7 @@ public class StudentMapper {
         student.setId(studentEntity.getId());
         student.setName(studentEntity.getName());
         student.setEmail(studentEntity.getEmail());
-        student.setLockerNumber(studentEntity.getLockerNumber());
+        student.setLocker(studentEntity.getLocker());
 
         return student;
     }
