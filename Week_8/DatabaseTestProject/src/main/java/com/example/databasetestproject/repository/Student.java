@@ -1,22 +1,21 @@
-package com.example.studentapi.service.model;
+package com.example.databasetestproject.repository;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
+@Entity
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private String name;
+
     private String email;
-    private Integer locker;
-
-    public Student(Integer id, String name, String email, Integer locker) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.locker = locker;
-    }
-
-    public Student() {
-    }
 
     public Integer getId() {
         return id;
@@ -42,14 +41,6 @@ public class Student {
         this.email = email;
     }
 
-    public Integer getLocker() {
-        return locker;
-    }
-
-    public void setLocker(Integer locker) {
-        this.locker = locker;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -57,25 +48,25 @@ public class Student {
 
         Student student = (Student) o;
 
+        if (!Objects.equals(id, student.id)) return false;
         if (!Objects.equals(name, student.name)) return false;
-        if (!Objects.equals(email, student.email)) return false;
-        return Objects.equals(locker, student.locker);
+        return Objects.equals(email, student.email);
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (locker != null ? locker.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", lockerNumber=" + locker +
                 '}';
     }
 }
