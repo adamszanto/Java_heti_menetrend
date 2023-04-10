@@ -17,6 +17,8 @@ public class StudentRepository {
         list.put(11, new StudentEntity(11, "Lazlo H", "hello1@freemail.hu", 15));
         list.put(12, new StudentEntity(12, "Lazlo C", "hello2@freemail.hu", 16));
         list.put(13, new StudentEntity(13, "Lazlo K", "hello3@freemail.hu", 20));
+        list.put(13, new StudentEntity(14, "Lazlo X", "hello4@freemail.hu", 30));
+        list.put(13, new StudentEntity(15, "Lazlo Y", "hello5@freemail.hu", 40));
     }
 
     public List<StudentEntity> findAllStudents() {
@@ -24,17 +26,10 @@ public class StudentRepository {
     }
 
     public StudentEntity save() {
-        list.put(14, new StudentEntity(14, "Habak", "ukk@free", 22));
+        list.put(14, new StudentEntity(16, "Habak", "ukk@freem.hu", 22));
     //    return list.get(list.size());
-        return findById(14);
-
+        return findById(16);
     }
-
-//    public Optional<Map.Entry<Integer, StudentEntity>> getById(Integer id) {
-//        return list.entrySet().stream()
-//                .filter(student -> student.getKey() == id)
-//                .findFirst();
-//    }
 
     public StudentEntity findById(Integer id) {
         return list.entrySet().stream()
