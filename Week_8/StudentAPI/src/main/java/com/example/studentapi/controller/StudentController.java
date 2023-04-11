@@ -50,8 +50,8 @@ public class StudentController {
     }
 
     @PostMapping("add")
-    public ResponseEntity <Student> createStudent(@RequestParam String name, @RequestParam String email, @RequestParam Integer locker) {
-        Student student = studentService.createStudent(name, email, locker);
+    public ResponseEntity <Student> createStudent(@RequestBody StudentDto studentDto) {
+        Student student = studentService.createStudent(studentDto.getStudent());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(student);
     }
