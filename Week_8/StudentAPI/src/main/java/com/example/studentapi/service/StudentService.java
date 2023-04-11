@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+// @Service
 public class StudentService {
     private final Logger logger = LoggerFactory.getLogger(StudentService.class);
     private  StudentRepository studentRepository;
@@ -35,11 +35,11 @@ public class StudentService {
         return selectAllStudents().size();
     }
 
-    public Student createStudent(String name, String email, Integer locker) {
+    public Student createStudent(Student student) {
         StudentEntity studentEntity = new StudentEntity();
-        studentEntity.setName(name);
-        studentEntity.setEmail(email);
-        studentEntity.setLocker(locker);
+        studentEntity.setName(student.getName());
+        studentEntity.setEmail(student.getEmail());
+        studentEntity.setLocker(student.getLocker());
         studentRepository.save(studentEntity);
         logger.info("Custom log: Status code: {}", HttpStatus.CREATED);
         return studentMapper.convertEntityToModel(studentEntity);
