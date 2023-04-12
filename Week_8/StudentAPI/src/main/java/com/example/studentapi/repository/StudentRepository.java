@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface StudentRepository extends JpaRepository <StudentEntity, Integer> {
-    List<Student> findByName(String name);
+  //  List<Student> findByName(String name);
     @Query("SELECT s FROM StudentEntity s WHERE s.name = :name")
     List<Student> selectByName(@Param("name") String name);
 }
