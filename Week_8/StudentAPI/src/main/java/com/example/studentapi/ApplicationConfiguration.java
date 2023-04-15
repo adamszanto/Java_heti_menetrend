@@ -1,6 +1,7 @@
 package com.example.studentapi;
 
 import com.example.studentapi.mapper.StudentMapper;
+import com.example.studentapi.repository.CustomRepository;
 import com.example.studentapi.repository.StudentRepository;
 import com.example.studentapi.service.StudentService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -12,10 +13,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Configuration
 @EnableScheduling
 public class ApplicationConfiguration {
-    @Bean
-    public StudentService studentService(StudentRepository studentRepository, StudentMapper studentMapper) {
-        return new StudentService(studentRepository, studentMapper);
-    }
+//    @Bean
+//    public StudentService studentService(StudentRepository studentRepository, StudentMapper studentMapper) {
+//        return new StudentService(studentRepository, studentMapper);
+//    }
+
 
 //    @Bean
 //    public ObjectMapper objectMapper() {

@@ -1,6 +1,7 @@
 package com.example.studentapi.service;
 
 import com.example.studentapi.mapper.StudentMapper;
+import com.example.studentapi.repository.CustomRepository;
 import com.example.studentapi.repository.StudentRepository;
 import com.example.studentapi.repository.entity.StudentEntity;
 import com.example.studentapi.service.model.Student;
@@ -13,24 +14,29 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// @Service
+@Service
 public class StudentService {
     private final Logger logger = LoggerFactory.getLogger(StudentService.class);
-    private  StudentRepository studentRepository;
+ //   private  StudentRepository studentRepository;
+    private CustomRepository customRepository;
     private StudentMapper studentMapper;
 
+//    @Autowired
+//    public StudentService(StudentRepository studentRepository, StudentMapper studentMapper) {
+//        this.studentRepository = studentRepository;
+//        this.studentMapper = studentMapper;
+//    }
     @Autowired
-    public StudentService(StudentRepository studentRepository, StudentMapper studentMapper) {
-        this.studentRepository = studentRepository;
+    public StudentService(CustomRepository customRepository, StudentMapper studentMapper) {
+        this.customRepository = customRepository;
         this.studentMapper = studentMapper;
     }
 
-    public List<Student> selectAllStudents() {
-        return studentRepository.findAll().stream()
-                .map(studentEntity -> studentMapper.convertEntityToModel(studentEntity))
-                .collect(Collectors.toList());
-    }
-
+//    public List<Student> selectAllStudents() {
+//        return studentRepository.findAll().stream()
+//                .map(studentEntity -> studentMapper.convertEntityToModel(studentEntity))
+//                .collect(Collectors.toList());
+//    }
     public Integer selectNumber() {
         return selectAllStudents().size();
     }
@@ -40,13 +46,22 @@ public class StudentService {
         studentEntity.setName(student.getName());
         studentEntity.setEmail(student.getEmail());
         studentEntity.setLocker(student.getLocker());
-        studentRepository.save(studentEntity);
+    //    studentRepository.save(studentEntity);
+        customRepository.save(studentEntity);
         logger.info("Custom log: Status code: {}", HttpStatus.CREATED);
         return studentMapper.convertEntityToModel(studentEntity);
     }
 
+    //TODO: Itt az Első EntityManager-es metódus:
     public Student selectStudentById(Integer id) {
-        StudentEntity studentEntity = studentRepository.getById(id);
+       // StudentEntity studentEntity = studentRepository.getById(id);
+        StudentEntity studentEntity = customRepository.findById(id);
         return studentMapper.convertEntityToModel(studentEntity);
+    }
+
+    public List<Student> selectAllStudents() {
+        return customRepository.findAllStudent().stream()
+                .map(studentEntity -> studentMapper.convertEntityToModel(studentEntity))
+                .collect(Collectors.toList());
     }
 }
