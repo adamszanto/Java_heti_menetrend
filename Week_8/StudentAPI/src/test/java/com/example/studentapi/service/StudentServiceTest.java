@@ -2,19 +2,18 @@ package com.example.studentapi.service;
 
 import com.example.studentapi.mapper.StudentMapper;
 import com.example.studentapi.repository.CustomRepository;
+import com.example.studentapi.repository.StudentRepository;
 import com.example.studentapi.repository.entity.StudentEntity;
 import com.example.studentapi.service.model.Student;
-import jakarta.persistence.GeneratedValue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -22,7 +21,7 @@ class StudentServiceTest {
     // Mockolni kell: Létrehozunk egy csontvázat, és megmondjuk hogy melyik metódus hogyan viselkedjen. Nem a valós objektumot használjuk.
     // Mock annotáció nem működik osztály annotáció nélkül ami: @ExtendWith
     @Mock
-    private CustomRepository customRepository;
+    private StudentRepository customRepository;
     private StudentMapper studentMapper;
     private StudentService underTest;
 
@@ -49,17 +48,18 @@ class StudentServiceTest {
         expectedResult.setLocker(student.getLocker());
 
         StudentEntity studentEntity = new StudentEntity();
-        studentEntity.setId(student.getId());
+        studentEntity.setStudentId(student.getId());
         studentEntity.setName(student.getName());
         studentEntity.setEmail(student.getEmail());
         studentEntity.setLocker(student.getLocker());
 
-        when(customRepository.save(any(StudentEntity.class))).thenReturn(studentEntity);
+        when(customRepository.save(studentEntity)).thenReturn(studentEntity);
 
         // When
         Student result = underTest.createStudent(student);
 
         // Then
         assertEquals(result, expectedResult);
+        verify(customRepository).save(studentEntity);
     }
 }
