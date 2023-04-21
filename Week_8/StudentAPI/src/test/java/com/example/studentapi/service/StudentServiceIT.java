@@ -18,7 +18,7 @@ public class StudentServiceIT {
     private StudentService underTest;
 
     @Autowired
-    private StudentRepository customRepository;
+    private CustomRepository customRepository;
 
     @BeforeEach
     void init() {

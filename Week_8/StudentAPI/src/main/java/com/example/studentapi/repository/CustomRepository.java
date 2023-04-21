@@ -21,13 +21,13 @@ public class CustomRepository {
     }
 
     // Save az itt insert
-    @Transactional(value=REQUIRES_NEW)
+    @Transactional
     public StudentEntity save(StudentEntity studentEntity) {
         // Megkapjuk a tranzakciós objektumot. Mérföldkövek: Megmondhatjuk hol kezdődik, hol végződik, plusz félúton is elmenthetjük
         // begin(), commit(), rollback()
         // entityManager.getTransaction().begin();
 
-        entityManager.getTransaction();
+        //entityManager.getTransaction();
         if(studentEntity.getStudentId() != null) {
             entityManager.merge(studentEntity);
         } else {
@@ -40,7 +40,14 @@ public class CustomRepository {
         return entityManager.createQuery("SELECT s FROM StudentEntity s", StudentEntity.class).getResultList();
     }
 
-    @Transactional(value=REQUIRES_NEW)
+    public Long count() {
+        List<Long> result = entityManager.createQuery("SELECT COUNT(s) as cnt FROM StudentEntity s").getResultList();
+        if(!result.isEmpty()) {
+            return result.get(0);
+        }
+        return 0L;
+    }
+    @Transactional
     public void deleteAll() {
         entityManager.createQuery("DELETE FROM StudentEntity").executeUpdate();
     }

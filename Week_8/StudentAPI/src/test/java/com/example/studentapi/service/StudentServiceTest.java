@@ -11,17 +11,19 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTest {
     // Mockolni kell: Létrehozunk egy csontvázat, és megmondjuk hogy melyik metódus hogyan viselkedjen. Nem a valós objektumot használjuk.
     // Mock annotáció nem működik osztály annotáció nélkül ami: @ExtendWith
     @Mock
-    private StudentRepository customRepository;
+    private CustomRepository customRepository;
     private StudentMapper studentMapper;
     private StudentService underTest;
 
@@ -61,5 +63,48 @@ class StudentServiceTest {
         // Then
         assertEquals(result, expectedResult);
         verify(customRepository).save(studentEntity);
+    }
+
+    @Test
+    void shouldUnderTestSelectNumberReturnStudentsSize() {
+        // Given
+        List<StudentEntity> mockStudentEntities = new ArrayList<>();
+        mockStudentEntities.add(new StudentEntity(101, "Bello", "hello@free1.hu", 24));
+        mockStudentEntities.add(new StudentEntity(102, "Hello", "hello@free2.hu", 25));
+        mockStudentEntities.add(new StudentEntity(103, "Eello", "hello@free3.hu", 26));
+
+        when(customRepository.findAllStudent()).thenReturn(mockStudentEntities);
+
+        Integer expected = mockStudentEntities.size();
+
+        // When
+        Integer result = underTest.selectNumber();
+
+        // Then
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void shouldUnderTestSelectStudentByIdReturnId() {
+        // Given
+        Student student = new Student();
+        student.setId(101);
+        student.setName("Bello");
+        student.setEmail("hello@bell.o");
+        student.setLocker(13);
+
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setStudentId(student.getId());
+        studentEntity.setName(student.getName());
+        studentEntity.setEmail(student.getEmail());
+        studentEntity.setLocker(student.getLocker());
+
+        when(customRepository.findById(101)).thenReturn(studentEntity);
+
+        // When
+        Student result = underTest.selectStudentById(101);
+
+        // Then
+        assertEquals(result, student);
     }
 }

@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 @Service
 public class StudentService {
     private final Logger logger = LoggerFactory.getLogger(StudentService.class);
-    private  StudentRepository studentRepository;
- //   private CustomRepository customRepository;
+ //   private  StudentRepository studentRepository;
+    private CustomRepository customRepository;
     private StudentMapper studentMapper;
 
 //    @Autowired
@@ -27,8 +27,8 @@ public class StudentService {
 //        this.studentMapper = studentMapper;
 //    }
     @Autowired
-    public StudentService(StudentRepository studentRepository, StudentMapper studentMapper) {
-        this.studentRepository = studentRepository;
+    public StudentService(CustomRepository customRepository, StudentMapper studentMapper) {
+        this.customRepository = customRepository;
         this.studentMapper = studentMapper;
     }
 
@@ -47,7 +47,7 @@ public class StudentService {
         studentEntity.setEmail(student.getEmail());
         studentEntity.setLocker(student.getLocker());
     //    studentRepository.save(studentEntity);
-        StudentEntity  savedEntity = studentRepository.save(studentEntity);
+        StudentEntity  savedEntity = customRepository.save(studentEntity);
         logger.info("Custom log: Status code: {}", HttpStatus.CREATED);
         return studentMapper.convertEntityToModel(savedEntity);
     }
@@ -55,12 +55,12 @@ public class StudentService {
     //TODO: Itt az Első EntityManager-es metódus:
     public Student selectStudentById(Integer id) {
        // StudentEntity studentEntity = studentRepository.getById(id);
-        StudentEntity studentEntity = studentRepository.findById(id).get();
+        StudentEntity studentEntity = customRepository.findById(id);
         return studentMapper.convertEntityToModel(studentEntity);
     }
 
     public List<Student> selectAllStudents() {
-        return studentRepository.findAll().stream()
+        return customRepository.findAllStudent().stream()
                 .map(studentEntity -> studentMapper.convertEntityToModel(studentEntity))
                 .collect(Collectors.toList());
     }
