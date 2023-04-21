@@ -10,7 +10,7 @@ public class StudentMapper {
     public StudentEntity convertModelToEntity(Student student) {
         StudentEntity studentEntity = new StudentEntity();
 
-        studentEntity.setId(student.getId());
+        studentEntity.setStudentId(student.getId());
         studentEntity.setName(student.getName());
         studentEntity.setEmail(student.getEmail());
         studentEntity.setLocker(student.getLocker());
@@ -21,7 +21,7 @@ public class StudentMapper {
     public Student convertEntityToModel(StudentEntity studentEntity) {
         Student student = new Student();
 
-        student.setId(studentEntity.getId());
+        student.setId(studentEntity.getStudentId());
         student.setName(studentEntity.getName());
         student.setEmail(studentEntity.getEmail());
         student.setLocker(studentEntity.getLocker());

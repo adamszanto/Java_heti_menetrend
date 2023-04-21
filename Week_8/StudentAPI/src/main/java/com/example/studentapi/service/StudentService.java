@@ -47,9 +47,9 @@ public class StudentService {
         studentEntity.setEmail(student.getEmail());
         studentEntity.setLocker(student.getLocker());
     //    studentRepository.save(studentEntity);
-        customRepository.save(studentEntity);
+        StudentEntity  savedEntity = customRepository.save(studentEntity);
         logger.info("Custom log: Status code: {}", HttpStatus.CREATED);
-        return studentMapper.convertEntityToModel(studentEntity);
+        return studentMapper.convertEntityToModel(savedEntity);
     }
 
     //TODO: Itt az Első EntityManager-es metódus:

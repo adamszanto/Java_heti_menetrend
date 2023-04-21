@@ -11,10 +11,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("student")
+@RequestMapping("students")
 public class StudentController {
 
     private final Logger logger = LoggerFactory.getLogger(StudentController.class);
@@ -28,14 +29,19 @@ public class StudentController {
     }
 
     @GetMapping
-    public void getStudent() {
-        logger.info("Custom log: Got all students");
+    public List<StudentDto> getAll() {
+        List<Student> studentList = studentService.selectAllStudents();
+
+        List<StudentDto> studentDtoList = new ArrayList<>();
+
+        for(Student student : studentList) {
+            StudentDto studentDto = studentMapper.convertModelToDto(student);
+        }
+
+        return studentDtoList;
     }
 
-    @GetMapping("all")
-    public List<Student> getAll() {
-        return studentService.selectAllStudents();
-    }
+
 
     @GetMapping("{id}")
     public StudentDto getStudentById(@PathVariable(value = "id") Integer id) {
@@ -49,10 +55,11 @@ public class StudentController {
         return studentService.selectNumber();
     }
 
-    @PostMapping("add")
-    public ResponseEntity <Student> createStudent(@RequestBody StudentDto studentDto) {
+    // TODO: StudentDto-t kell visszaadni:
+    @PostMapping
+    public ResponseEntity <StudentDto> createStudent(@RequestBody StudentDto studentDto) {
         Student student = studentService.createStudent(studentDto.getStudent());
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+        StudentDto convertedStudent = studentMapper.convertModelToDto(student);
+        return ResponseEntity.status(HttpStatus.CREATED).body(convertedStudent);
     }
 }

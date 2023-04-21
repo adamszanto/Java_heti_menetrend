@@ -9,7 +9,7 @@ import java.util.Objects;
 public class StudentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Integer studentId;
     @Column(name="name")
     private String name;
     @Column(name="email")
@@ -18,7 +18,7 @@ public class StudentEntity {
     private Integer locker;
 
     public StudentEntity(Integer id, String name, String email, Integer locker) {
-        this.id = id;
+        this.studentId = id;
         this.name = name;
         this.email = email;
         this.locker = locker;
@@ -31,12 +31,12 @@ public class StudentEntity {
         return name;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setStudentId(Integer id) {
+        this.studentId = id;
     }
 
     public void setName(String name) {

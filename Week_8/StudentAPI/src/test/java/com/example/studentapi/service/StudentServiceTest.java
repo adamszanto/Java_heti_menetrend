@@ -2,20 +2,21 @@ package com.example.studentapi.service;
 
 import com.example.studentapi.mapper.StudentMapper;
 import com.example.studentapi.repository.CustomRepository;
+import com.example.studentapi.repository.StudentRepository;
 import com.example.studentapi.repository.entity.StudentEntity;
 import com.example.studentapi.service.model.Student;
-import jakarta.persistence.GeneratedValue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTest {
@@ -49,17 +50,61 @@ class StudentServiceTest {
         expectedResult.setLocker(student.getLocker());
 
         StudentEntity studentEntity = new StudentEntity();
-        studentEntity.setId(student.getId());
+        studentEntity.setStudentId(student.getId());
         studentEntity.setName(student.getName());
         studentEntity.setEmail(student.getEmail());
         studentEntity.setLocker(student.getLocker());
 
-        when(customRepository.save(any(StudentEntity.class))).thenReturn(studentEntity);
+        when(customRepository.save(studentEntity)).thenReturn(studentEntity);
 
         // When
         Student result = underTest.createStudent(student);
 
         // Then
         assertEquals(result, expectedResult);
+        verify(customRepository).save(studentEntity);
+    }
+
+    @Test
+    void shouldUnderTestSelectNumberReturnStudentsSize() {
+        // Given
+        List<StudentEntity> mockStudentEntities = new ArrayList<>();
+        mockStudentEntities.add(new StudentEntity(101, "Bello", "hello@free1.hu", 24));
+        mockStudentEntities.add(new StudentEntity(102, "Hello", "hello@free2.hu", 25));
+        mockStudentEntities.add(new StudentEntity(103, "Eello", "hello@free3.hu", 26));
+
+        when(customRepository.findAllStudent()).thenReturn(mockStudentEntities);
+
+        Integer expected = mockStudentEntities.size();
+
+        // When
+        Integer result = underTest.selectNumber();
+
+        // Then
+        assertEquals(expected, result);
+    }
+
+    @Test
+    void shouldUnderTestSelectStudentByIdReturnId() {
+        // Given
+        Student student = new Student();
+        student.setId(101);
+        student.setName("Bello");
+        student.setEmail("hello@bell.o");
+        student.setLocker(13);
+
+        StudentEntity studentEntity = new StudentEntity();
+        studentEntity.setStudentId(student.getId());
+        studentEntity.setName(student.getName());
+        studentEntity.setEmail(student.getEmail());
+        studentEntity.setLocker(student.getLocker());
+
+        when(customRepository.findById(101)).thenReturn(studentEntity);
+
+        // When
+        Student result = underTest.selectStudentById(101);
+
+        // Then
+        assertEquals(result, student);
     }
 }
