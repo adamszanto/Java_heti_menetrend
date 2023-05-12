@@ -106,5 +106,6 @@ class StudentServiceTest {
 
         // Then
         assertEquals(result, student);
+        verify(customRepository).findById(101);
     }
 }

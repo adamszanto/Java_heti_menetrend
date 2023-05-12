@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
-
 @Repository
 public class CustomRepository {
 
