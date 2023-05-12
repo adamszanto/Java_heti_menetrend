@@ -1,10 +1,8 @@
 package exercise02;
 
-import java.sql.SQLOutput;
-
 public class LinkedList<T extends Number> {
     private Node<T> head;
-    private int size;
+    private Integer size;
 
     public LinkedList() {
         head = null;
@@ -46,7 +44,7 @@ public class LinkedList<T extends Number> {
         size++;
     }
 
-    public void remote (T t) {
+    public void remove(T t) {
 
         if(head == null) {
             return;

@@ -42,7 +42,6 @@ public class StudentController {
     }
 
 
-
     @GetMapping("{id}")
     public StudentDto getStudentById(@PathVariable(value = "id") Integer id) {
         logger.info("Custom log: Got user id: {}", id);
@@ -55,7 +54,6 @@ public class StudentController {
         return studentService.selectNumber();
     }
 
-    // TODO: StudentDto-t kell visszaadni:
     @PostMapping
     public ResponseEntity <StudentDto> createStudent(@RequestBody StudentDto studentDto) {
         Student student = studentService.createStudent(studentDto.getStudent());

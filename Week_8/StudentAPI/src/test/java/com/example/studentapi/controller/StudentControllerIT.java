@@ -27,8 +27,7 @@ public class StudentControllerIT {
 
     // TODO HF: Service összes metódusára Unit Test + IT
     //Összes controlleres metódusra legyen mockmvc teszt
-
-
+    
 
     @Test
     public void testStudentCreation() throws Exception {
