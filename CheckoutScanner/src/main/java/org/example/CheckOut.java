@@ -5,25 +5,24 @@ import java.util.Map;
 public class CheckOut {
     private final RuleEngine rules;
     private final Map<String, Integer> items;
+    private boolean tripleARuleFetch;
 
     public CheckOut(RuleEngine rules) {
         this.rules = rules;
         this.items = new HashMap<>();
+        tripleARuleFetch = false;
     }
 
     public void scan(String item) {
         items.putIfAbsent(item, 0);
         items.put(item, items.get(item) + 1);
+
+        if(item.equals("A")) {
+            tripleARuleFetch = true;
+        }
     }
 
-    public int getTotal() {
-//        int total = 0;
-//        for (String item : items.keySet()) {
-//            int count = items.get(item);
-//            int price = rules.getPrice(item);
-//            total += price;
-//        }
-//        return total;
+    public double getTotal() {
         return rules.calculateTotal(items);
     }
 }
