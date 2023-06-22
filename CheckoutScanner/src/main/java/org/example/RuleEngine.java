@@ -41,11 +41,11 @@ public class RuleEngine {
 
         if(ruleByItems.containsKey(item)) {
             Rule rule = ruleByItems.get(item);
-            int ruleCount = rule.getCount();
+            double ruleCount = rule.getCount();
             if(numberOfItem >= ruleCount) {
                 int discountPrice = rule.getDiscountPrice();
-                int numDiscounts = numberOfItem / ruleCount;
-                int remainder = numberOfItem % ruleCount;
+                double numDiscounts = numberOfItem / ruleCount;
+                double remainder = numberOfItem % ruleCount;
 
                 return (numDiscounts * discountPrice + remainder * price) * priceConstant;
             }

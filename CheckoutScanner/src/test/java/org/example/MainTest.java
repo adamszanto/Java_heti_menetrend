@@ -24,5 +24,7 @@ public class MainTest {
         assertEquals(130, getPrice("AAA"));
         assertEquals(180, getPrice("AAAA"));
         assertEquals(230, getPrice("AAAAA"));
+
+        assertEquals(140, getPrice("AAABB"));
     }
 }
