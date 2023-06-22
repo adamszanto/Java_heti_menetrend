@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MainTest {
     RuleEngine rules = new RuleEngine();
-    private long getPrice(String goods) {
+    private double getPrice(String goods) {
         CheckOut co = new CheckOut(rules);
         for(String item : Arrays.asList(goods.split(""))) {
             co.scan(item);
@@ -24,5 +24,7 @@ public class MainTest {
         assertEquals(130, getPrice("AAA"));
         assertEquals(180, getPrice("AAAA"));
         assertEquals(230, getPrice("AAAAA"));
+
+        assertEquals(140, getPrice("AAABB"));
     }
 }

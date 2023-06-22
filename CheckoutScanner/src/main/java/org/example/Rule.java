@@ -15,7 +15,7 @@ public class Rule {
         return item;
     }
 
-    public int getCount() {
+    public double getCount() {
         return count;
     }
 
