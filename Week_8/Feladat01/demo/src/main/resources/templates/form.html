@@ -1,0 +1,29 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h2>Calculate it!</h2>
+<form id="calculationForm" method="post" action="/calculate">
+    <div class="form-group">
+    <label for="number1">Number 1:</label>
+    <input type="number" id="number1" name="number1" required>
+    </div>
+    <br>
+    <div class="form-group">
+    <label for="number2">Number 2:</label>
+    <input type="number" id="number2" name="number2" required>
+    </div>
+    <br>
+    <button type="submit" id="submitButton">Calculate</button>
+    <button type="button" id="ajaxButton">Calculate with AJAX</button>
+</form>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>
